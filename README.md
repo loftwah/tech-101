@@ -2,6 +2,9 @@
 
 Welcome to the SchoolStatus Terraform Bootcamp!
 
+![SchoolStatus Terraform Bootcamp](https://user-images.githubusercontent.com/19922556/217196599-30c5a487-12e5-4749-aacc-8700fe419bbc.png)
+
+
 In this course, you will learn how to use Terraform to manage your cloud infrastructure as code, specifically on AWS, which is a platform used by SchoolStatus. Terraform is a powerful tool developed by HashiCorp that makes it easy to create, change, and version resources in cloud platforms such as AWS.
 
 By using Terraform, you can define your infrastructure in human-readable configuration files and automate the process of provisioning and managing your resources. This means you can focus on your application, instead of worrying about the underlying infrastructure.
