@@ -1,4 +1,4 @@
-# SchoolStatus Terraform Bootcamp
+# Terraform Bootcamp
 
 Welcome to the SchoolStatus Terraform Bootcamp!
 
