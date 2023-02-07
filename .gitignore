@@ -13,6 +13,7 @@ crash.log
 # version control.
 #
 # example.tfvars
+**/*.tfvars
 
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
@@ -27,3 +28,18 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
+
+# Mac files
+.DS_Store
+
+# Editor files
+.vscode
+
+
+#### Specifically for the bootcamp
+# Exclude all terraform lock files because we will not persist anything
+.terraform.lock.*
+
+# Things we'll generate in the exercises and want to ignore
+## files that start with ignoreMe
+**/*ignoreMe.*

@@ -1,0 +1,6 @@
+file_content = "put some other content here"
+
+file_extension = "makeMeAnExtension"
+
+# replace this integer
+random_string_length = 1
