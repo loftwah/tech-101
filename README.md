@@ -57,3 +57,4 @@ To complete this course, you will need the following:
 * [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 * [Terraform Cloud Documentation](https://www.terraform.io/docs/cloud/index.html)
 * [Terraform Cloud Free Tier](https://www.terraform.io/docs/cloud/free/index.html)
+* [Terraform Cloud Free Tier Signup](https://app.terraform.io/signup/account)
