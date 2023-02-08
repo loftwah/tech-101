@@ -2,6 +2,8 @@
 
 This guide will walk you through the basics of Terraform. It will show you how to create a local file using Terraform. It will also show you how to use the four most common Terraform commands.
 
+![Terraform Basics](https://user-images.githubusercontent.com/19922556/217530934-0d34a7dc-544f-4abb-8891-de7149801bcb.png)
+
 ## Creating a Local File
 
 In this exercise, we will create a file named `ignoreMe.something` with some arbitrary text. The file will be stored in the current directory. This will give us an opportunity to run four commonly used Terraform commands.
