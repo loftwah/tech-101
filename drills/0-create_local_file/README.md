@@ -1,53 +1,55 @@
-# A warm-up with the basics
+# A Guide to Terraform Basics
 
-## Creates a local file
+This guide will walk you through the basics of Terraform. It will show you how to create a local file using Terraform. It will also show you how to use the four most common Terraform commands.
 
-This will get us warmed up. It creates a file named `ignoreMe.something` that has some arbitrary text.
-The file will be in this directory. The exercise is just to give us a chance to run the 4 frequently run
-Terraform commands.
+## Creating a Local File
 
-### The following commands will act ONLY on the Terraform logic in this directory
+In this exercise, we will create a file named `ignoreMe.something` with some arbitrary text. The file will be stored in the current directory. This will give us an opportunity to run four commonly used Terraform commands.
 
-### Loads the modules & resources that the Terraform logic in this directory will need
-`terraform init`
+### Terraform Commands for this Directory Only
 
-### Tells us what change will be made
-`terraform plan`
+* Load required modules and resources: `terraform init`
+* Preview changes: `terraform plan`
+* Apply changes (prompts for confirmation): `terraform apply`
+* Destroy resources managed by Terraform in this directory: `terraform destroy`
 
-### Actually makes the change. An explicit `yes` will be requested
-`terraform apply`
+## Explanation of Terraform Commands
 
-### Destroys the things that were created by the Terraform logic in this directory.
-`terraform destroy`
+### `terraform init`
 
----
+This command only needs to be run when first starting with Terraform or when modules or resources are changed. Running this command again will not harm anything, but it will have no effect if there are no changes.
 
-## About `terraform init`
-The command only *needs* to be run either initially (before the .terraform directory existed) 
-or when there is a change in modules or resources. In this exercise, we won't change these.
-It does no harm to run the command again. It will just change nothing.
+### `terraform plan`
 
-## About `terraform plan`
-The command gives you a preview of changes to be made. If the terraform logic and the 
-current `terraform state` are the same, It will indicate that no change will be made.
+This command shows a preview of changes that will be made. If the Terraform logic and state are the same, it will indicate that no changes will be made.
 
-## About `terraform apply`
-The command actually does a `terraform plan` and then prompts you for a `yes` before making changes.
-If you type anything other than `yes`, it exits and makes no change.
+### `terraform apply`
 
-## About `terraform destroy`
-The command destroys everything that is *managed* by Terraform, meaning it destroys anything
-that was created by the Terraform logic in the current directory. In this example, it will
-delete the `ignoreMe.something` file in this directory.
+This command performs a `terraform plan` and then asks for confirmation before making changes. If anything other than "yes" is entered, the command will exit and make no changes.
 
----
+### `terraform destroy`
 
-## Making updates
-Suppose we wanted to change the content of the file to be `Show us the Dim Mak!`
+This command destroys everything managed by Terraform in the current directory. In this example, it will delete the file `ignoreMe.something`.
 
-- First, open the `ignoreMe.something` and review its content.
-- Next, open `main.tf` and change the `content` tag to be `"Show us the Dim Mak!"`
-- Run `terraform plan`
-    - It should show that a change will be made to the content of the file.
-- Run `terraform apply` and respond with a `yes`
-- Let's open the `ignoreMe.something` and check its new content.
+## Updating the File
+
+To change the content of the file to "Show us the Dim Mak!", follow these steps:
+
+1. Open the file `ignoreMe.something` and review its content.
+2. Open `main.tf` and change the `content` tag to `"Show us the Dim Mak!"`.
+3. Run `terraform plan` to preview the change.
+4. Run `terraform apply` and confirm with "yes".
+5. Open `ignoreMe.something` and check its new content.
+
+## Destroying the File
+
+To destroy the file, follow these steps:
+
+1. Run `terraform destroy` and confirm with "yes".
+2. Open `ignoreMe.something` and confirm that it is gone.
+
+## Next Steps
+
+Now that you have created a local file, you can move on to the next exercise. In the next exercise, you will create a local file with a random name.
+
+[//]: # (End of file drills/0-create_local_file/README.md)
