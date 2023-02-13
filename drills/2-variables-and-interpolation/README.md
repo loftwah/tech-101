@@ -1,57 +1,56 @@
-# We'll need to get be a bit more *flexible*
+# Flexible Terraform Configuration
 
-## Let's stop hardcoding values
-So far, we've hardcoded eveything. We can make our logic flexible and portable
-by using variables. This drill will do just that.
+In this lesson, you will learn how to use Terraform to make your configuration flexible and portable.
 
-### We'll the resources we just worked with but substitute literals with variables
+## Introduction
 
-### Before changing, Let's run the terraform commands
+So far, we have hardcoded values in our Terraform configuration. In this drill, we'll make our logic flexible by using variables. This way, we can make our Terraform logic portable and reusable.
 
-```
+## Before making changes
+
+Before we begin, let's run the following Terraform commands to see what resources we have created so far:`
+
+```bash
 terraform init
-terraform plan
-terraform approve
-```
-
-#### You should now see the 2 files created in this directory
-- a file named `ignoreMe.xyz` with the content of "This is what I'll write unless you tell me to write something else.".
-- a file named `ignoreMe.pineapples` with the content "Some things I needed to write down."
-
-##### Let's talk about what happened
-- in the `main.tf` file, look at the resource block `resource "local_file" "stoopid_file1"`
-    - the `content` is set to `var.file_content`
-    - look in the `variables.tf` file and there will be a block for `variable "file_content"` whose default
-    value was written to `ignoreMe.xyz`
-    - also, in `variables.tf`, the block for `variable "file_extension"` defined the file's extension to be `xyz`
-- in the `main.tf` file, look at the resource block `resource "local_file" "stoopid_file2"`
-    - the `content` is set to `local.mylocal_file_content` and the extension is `${local.my_local_file_extension}`
-    - you should see a block for `locals` with `my_local_file_content` and `my_local_file_extension` defined
-    - local variables were used to create this file.
-
-##### So now we've seen how to use variables from `variables.tf` files and from `locals` blocks 
-
-#### You should see 2 random string JSON blocks in the terminal
-- `random_string1` will have the length of 6
-- `random_string2` will have the length of 3
-
-##### The random string lengths were defined in `variables.tf` and in a `locals` block also.
-
-### OKAY, let's now we can change stuff.
-
-In this directory, locate the `terraform.tfvars.example`, make a copy of it and name the copy `terraform.tfvars`
-
-#### Next, run the terraform commands
-
-```
 terraform plan
 terraform apply
 ```
 
-- Was the file named `ignoreMe.xyz` replaced by a file with the extension you defined and your new content?
-- Did `random_string1` display in the terminal with the length that you defined?
+ You should now see two files created in the directory:
 
-## CONGRATULATIONS! YOU'VE MADE YOUR LOGIC FLEXIBLE!!
+- A file named `ignoreMe.xyz` with the content `"This is what I'll write unless you tell me to write something else."`.
+- A file named `ignoreMe.pineapples` with the content `"Some things I needed to write down."`.
 
+## Understanding the existing code
 
+In the `main.tf` file, look at the resource block `resource "local_file" "stoopid_file1"`:
 
+- The `content` is set to `var.file_content`, which references the variable defined in the `variables.tf` file.
+- The `filename` is set to `"${path.module}/ignoreMe.${var.file_extension}"`, which references the built-in `path.module` value and the `file_extension` variable defined in `variables.tf`.
+
+In the `main.tf` file, look at the resource block `resource "local_file" "stoopid_file2"`:
+
+- The `content` is set to `local.my_local_file_content`, which references a local variable defined in the `locals` block.
+- The `filename` is set to `"${path.module}/ignoreMe.${local.my_local_file_extension}"`, which references the built-in `path.module` value and the `my_local_file_extension` local variable.
+
+You should also see two random string JSON blocks in the terminal:
+
+- `random_string1` will have a length of 6.
+- `random_string2` will have a length of 3.
+
+The random string lengths were defined in the `variables.tf` file and in a `locals` block.
+
+## Making changes
+
+In this directory, locate the `terraform.tfvars.example` file. Make a copy of it and name the copy `terraform.tfvars`. Then, run the following Terraform commands:``
+
+```bash
+terraform plan
+terraform apply
+```
+
+ You should now see the file named `ignoreMe.xyz` replaced with a file with the extension and content you defined. The random string values should also display in the terminal with the lengths that you defined.
+
+## Conclusion
+
+Congratulations! You have now made your Terraform logic flexible and portable.
