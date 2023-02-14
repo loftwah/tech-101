@@ -2,21 +2,21 @@
 
 [drills](drills/README.md) | [test](test/test.md)
 
-Welcome to the SchoolStatus Terraform Bootcamp!
+Welcome to our team Terraform Bootcamp!
 
 ![Terraform Bootcamp](https://user-images.githubusercontent.com/19922556/217238783-068597d5-91b0-4273-b21a-4c8b394a7b97.png)
 
-In this course, you will learn how to use Terraform to manage your cloud infrastructure as code, specifically on AWS, which is a platform used by SchoolStatus. Terraform is a powerful tool developed by HashiCorp that makes it easy to create, change, and version resources in cloud platforms such as AWS.
+In this course, you will learn how to use Terraform to manage your cloud infrastructure as code, specifically on AWS, which is a platform used by our team. Terraform is a powerful tool developed by HashiCorp that makes it easy to create, change, and version resources in cloud platforms such as AWS.
 
 By using Terraform, you can define your infrastructure in human-readable configuration files and automate the process of provisioning and managing your resources. This means you can focus on your application, instead of worrying about the underlying infrastructure.
 
 In this bootcamp, we will specifically focus on AWS and show you how to use Terraform to deploy resources such as Virtual Private Clouds (VPCs), security groups, and virtual machines in AWS. You will also learn how to use Terraform to manage your infrastructure throughout its lifecycle and collaborate with other members of your team using Terraform Cloud.
 
-So, buckle up and let's get started with Terraform at SchoolStatus!
+So, buckle up and let's get started with Terraform at our team!
 
 ## Next Steps
 
-The next steps in the SchoolStatus Terraform Bootcamp are:
+The next steps in our team Terraform Bootcamp are:
 
 Introduction to Terraform Concepts: A comprehensive overview of Terraform and its key concepts, including providers, modules, and the state file.
 

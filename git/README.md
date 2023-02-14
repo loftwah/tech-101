@@ -1,23 +1,59 @@
-# Git and GitHub 101: A Comprehensive Overview of Version Control and Code Collaboration
+# Terraform Bootcamp
 
 [drills](drills/README.md) | [test](test/test.md)
 
-Git is a distributed version control system that allows developers to track changes to code and collaborate on projects. It provides a way to manage code versions, track changes, and merge changes from multiple contributors.
+Welcome to our Terraform Bootcamp!
 
-![Cloud magic](https://user-images.githubusercontent.com/19922556/218705587-4e983a5f-f829-4c32-af91-8e10f6d3cf93.png)
+![Terraform Bootcamp](https://user-images.githubusercontent.com/19922556/217238783-068597d5-91b0-4273-b21a-4c8b394a7b97.png)
 
-Git provides a number of key features and concepts, including:
+In this course, you will learn how to use Terraform to manage your cloud infrastructure as code, specifically on AWS, which is a platform used by team. Terraform is a powerful tool developed by HashiCorp that makes it easy to create, change, and version resources in cloud platforms such as AWS.
 
-* **Commits:** A commit is a snapshot of changes to a codebase. Git allows you to commit changes to a codebase and track them over time.
-* **Branches:** A branch is a copy of a codebase that can be modified independently of the main codebase. Git allows you to create and manage branches, which can be used for feature development or experimentation.
-* **Merging:** Merging is the process of combining changes from different branches into a single codebase. Git provides tools for merging changes and resolving conflicts that may arise.
-* **Pull requests:** A pull request is a way to propose changes to a codebase and get feedback from other contributors. It allows you to review changes, discuss them, and merge them into the codebase if they are approved.
+By using Terraform, you can define your infrastructure in human-readable configuration files and automate the process of provisioning and managing your resources. This means you can focus on your application, instead of worrying about the underlying infrastructure.
 
-GitHub is a web-based platform that provides a way to host and collaborate on Git repositories. It provides tools for managing Git repositories, including:
+In this bootcamp, we will specifically focus on AWS and show you how to use Terraform to deploy resources such as Virtual Private Clouds (VPCs), security groups, and virtual machines in AWS. You will also learn how to use Terraform to manage your infrastructure throughout its lifecycle and collaborate with other members of your team using Terraform Cloud.
 
-* **Repositories:** A repository is a container for a codebase, which can be hosted on GitHub and shared with other developers.
-* **Issues:** Issues are a way to track bugs, feature requests, and other tasks related to a repository. They provide a way to manage and prioritize work on a project.
-* **Pull requests:** GitHub provides a way to create and manage pull requests, making it easy to review and merge changes from other contributors.
-* **Actions:** GitHub Actions provides a way to automate tasks such as building, testing, and deploying applications. It allows you to create custom workflows that can be triggered by events, such as a new commit or a pull request.
+So, buckle up and let's get started with Terraform at team!
 
-Overall, Git and GitHub are powerful tools for managing code and collaborating on projects. While it may take some time to get familiar with Git and GitHub and their concepts, it is a valuable skill that can help you work more efficiently and effectively with other developers.
+## Next Steps
+
+The next steps in the team Terraform Bootcamp are:
+
+Introduction to Terraform Concepts: A comprehensive overview of Terraform and its key concepts, including providers, modules, and the state file.
+
+Setting up Terraform: A step-by-step guide on how to set up Terraform and integrate it with AWS.
+
+Writing Terraform Configuration Files: A hands-on session on how to write Terraform configuration files to manage your infrastructure.
+
+Terraform Plan and Apply: A deep dive into the Terraform Plan and Apply commands, including how to create execution plans, approve changes, and apply changes to your infrastructure.
+
+Collaborating with Terraform Cloud: A comprehensive overview of how to use Terraform Cloud to manage Terraform workflows across teams, including using shared state, role-based access controls, and a private registry.
+
+Deploying Infrastructure with Terraform: A hands-on session on how to deploy infrastructure with Terraform, including how to deploy a VPC, security groups, and virtual machines.
+
+## Course Prerequisites
+
+To get the most out of this course, you should have a basic understanding of the following concepts:
+
+* The AWS platform
+* The Linux command line
+
+## Course Requirements
+
+To complete this course, you will need the following:
+
+* A computer with an internet connection
+* A free AWS account
+* Terraform installed on your computer
+* A text editor such as Visual Studio Code or Vim
+
+## Get Started
+
+What are you waiting for? Jump right into the [drills](drills/README.md) and start learning Terraform! Or you could read the [intro](intro.md) to learn more about Terraform.
+
+## Course Resources
+
+* [Terraform Documentation](https://www.terraform.io/docs/index.html)
+* [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+* [Terraform Cloud Documentation](https://www.terraform.io/docs/cloud/index.html)
+* [Terraform Cloud Free Tier](https://www.terraform.io/docs/cloud/free/index.html)
+* [Terraform Cloud Free Tier Signup](https://app.terraform.io/signup/account)
