@@ -105,3 +105,10 @@ Security Groups:
 * Network security service.
 * Allows you to control inbound and outbound traffic to EC2 instances, RDS databases, and other AWS resources.
 * Provides stateful firewall
+
+IAM
+
+* Identity and access management service.
+* Allows you to manage user access to AWS resources.
+* Provides fine-grained access control features.
+* Can be used to secure and control access to AWS resources.
