@@ -1,62 +1,68 @@
-# Terraform Bootcamp
+# Welcome to Our Team!
 
-Welcome to the SchoolStatus Terraform Bootcamp!
+We're excited to have you onboard and are looking forward to working with you. As a member of our team, you'll be working with some of the latest and greatest technologies, including AWS, Docker, Linux, Rails, Ruby, and Terraform. This guide will give you a brief introduction to these technologies, as well as some guides on how to get up and running with some of the tools we use on a daily basis.
 
-![Terraform Bootcamp](https://user-images.githubusercontent.com/19922556/217238783-068597d5-91b0-4273-b21a-4c8b394a7b97.png)
+## Getting Started
 
-In this course, you will learn how to use Terraform to manage your cloud infrastructure as code, specifically on AWS, which is a platform used by SchoolStatus. Terraform is a powerful tool developed by HashiCorp that makes it easy to create, change, and version resources in cloud platforms such as AWS.
+Before diving into the specifics of our technology stack, we want to make sure you have all the tools you need to get up and running. Here are some of the tools we recommend you install:
 
-By using Terraform, you can define your infrastructure in human-readable configuration files and automate the process of provisioning and managing your resources. This means you can focus on your application, instead of worrying about the underlying infrastructure.
+- **Docker**: A containerization platform used to develop, build, and deploy applications.
+- **Ruby**: A popular programming language used in web development.
+- **Rails**: A web application framework written in Ruby.
+- **Terraform**: A tool used to build, change, and version infrastructure.
+- **AWS CLI**: A command line interface for managing AWS services.
+- **Git**: A version control system used for managing code.
 
-In this bootcamp, we will specifically focus on AWS and show you how to use Terraform to deploy resources such as Virtual Private Clouds (VPCs), security groups, and virtual machines in AWS. You will also learn how to use Terraform to manage your infrastructure throughout its lifecycle and collaborate with other members of your team using Terraform Cloud.
+## Guides
 
-So, buckle up and let's get started with Terraform at SchoolStatus!
+### Getting Started with AWS
 
-## Next Steps
+AWS is a cloud computing platform that provides a wide range of services and features to help you build, deploy, and manage applications in the cloud. To get started with AWS, follow these guides:
 
-The next steps in the SchoolStatus Terraform Bootcamp are:
+- **Creating an AWS Account**: [Link to AWS documentation]
+- **Creating an EC2 Instance**: [Link to AWS documentation]
+- **Creating an S3 Bucket**: [Link to AWS documentation]
 
-Introduction to Terraform Concepts: A comprehensive overview of Terraform and its key concepts, including providers, modules, and the state file.
+### Getting Started with Docker
 
-Setting up Terraform: A step-by-step guide on how to set up Terraform and integrate it with AWS.
+Docker is a containerization platform that enables you to develop, build, and deploy applications in a self-contained environment. To get started with Docker, follow these guides:
 
-Writing Terraform Configuration Files: A hands-on session on how to write Terraform configuration files to manage your infrastructure.
+- **Installing Docker**: [Link to Docker documentation]
+- **Building a Docker Image**: [Link to Docker documentation]
+- **Running a Docker Container**: [Link to Docker documentation]
 
-Terraform Plan and Apply: A deep dive into the Terraform Plan and Apply commands, including how to create execution plans, approve changes, and apply changes to your infrastructure.
+### Getting Started with Linux
 
-Collaborating with Terraform Cloud: A comprehensive overview of how to use Terraform Cloud to manage Terraform workflows across teams, including using shared state, role-based access controls, and a private registry.
+Linux is an open-source operating system that is widely used in web development. To get started with Linux, follow these guides:
 
-Deploying Infrastructure with Terraform: A hands-on session on how to deploy infrastructure with Terraform, including how to deploy a VPC, security groups, and virtual machines.
+- **Installing Linux**: [Link to Linux distribution documentation]
+- **Basic Linux Commands**: [Link to Linux documentation]
+- **Configuring a Linux Server**: [Link to Linux documentation]
 
-## Course Prerequisites
+### Getting Started with Rails
 
-To get the most out of this course, you should have a basic understanding of the following concepts:
+Rails is a web application framework written in Ruby that allows you to quickly build and deploy web applications. To get started with Rails, follow these guides:
 
-* The AWS platform
-* The Linux command line
+- **Installing Rails**: [Link to Rails documentation]
+- **Creating a New Rails Application**: [Link to Rails documentation]
+- **Deploying a Rails Application**: [Link to Rails documentation]
 
-## Course Requirements
+### Getting Started with Ruby
 
-To complete this course, you will need the following:
+Ruby is a popular programming language used in web development. To get started with Ruby, follow these guides:
 
-* A computer with an internet connection
-* A free AWS account
-* Terraform installed on your computer
-* A text editor such as Visual Studio Code or Vim
+- **Installing Ruby**: [Link to Ruby documentation]
+- **Basic Ruby Syntax**: [Link to Ruby documentation]
+- **Creating a Simple Ruby Program**: [Link to Ruby documentation]
 
-## Course Outline
+### Getting Started with Terraform
 
-* Introduction to Terraform Concepts
-* Setting up Terraform
-* Writing Terraform Configuration Files
-* Terraform Plan and Apply
-* Collaborating with Terraform Cloud
-* Deploying Infrastructure with Terraform
+Terraform is a tool used to build, change, and version infrastructure. To get started with Terraform, follow these guides:
 
-## Course Resources
+- **Installing Terraform**: [Link to Terraform documentation]
+- **Creating a New Terraform Project**: [Link to Terraform documentation]
+- **Deploying Infrastructure with Terraform**: [Link to Terraform documentation]
 
-* [Terraform Documentation](https://www.terraform.io/docs/index.html)
-* [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-* [Terraform Cloud Documentation](https://www.terraform.io/docs/cloud/index.html)
-* [Terraform Cloud Free Tier](https://www.terraform.io/docs/cloud/free/index.html)
-* [Terraform Cloud Free Tier Signup](https://app.terraform.io/signup/account)
+## Conclusion
+
+We hope this guide has been helpful in getting you started with our technology stack. If you have any questions or need assistance, don't hesitate to reach out to us. We're here to support you and are looking forward to working with you!
