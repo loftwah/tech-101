@@ -1,5 +1,7 @@
 # Terraform Bootcamp
 
+[Take the test](test/test.md)
+
 Welcome to the SchoolStatus Terraform Bootcamp!
 
 ![Terraform Bootcamp](https://user-images.githubusercontent.com/19922556/217238783-068597d5-91b0-4273-b21a-4c8b394a7b97.png)
