@@ -44,14 +44,9 @@ To complete this course, you will need the following:
 * Terraform installed on your computer
 * A text editor such as Visual Studio Code or Vim
 
-## Course Outline
+## Get Started
 
-* Introduction to Terraform Concepts
-* Setting up Terraform
-* Writing Terraform Configuration Files
-* Terraform Plan and Apply
-* Collaborating with Terraform Cloud
-* Deploying Infrastructure with Terraform
+What are you waiting for? Jump right into the [drills](drills/README.md) and start learning Terraform!
 
 ## Course Resources
 
