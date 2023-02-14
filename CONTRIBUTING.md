@@ -28,7 +28,7 @@ Please note that all code contributions must follow our coding standards and be 
 
 ## Code of Conduct
 
-To ensure that Tech Bootcamp is a respectful and professional environment, we ask that all team members follow our code of conduct. The code of conduct can be found in the CODE\_OF\_CONDUCT.md file in the root of the repository.
+To ensure that Tech Bootcamp is a respectful and professional environment, we ask that all team members follow our code of conduct. The code of conduct can be found in the [CODE\_OF\_CONDUCT.md](CODE_OF-CONDUCT.md) file in the root of the repository.
 
 We encourage you to review the code of conduct before contributing to Tech Bootcamp.
 
