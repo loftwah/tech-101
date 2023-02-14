@@ -47,14 +47,14 @@ git config --global user.email "YOUR_EMAIL"
     5. Paste your public key into the "Key" field and give it a title.
     6. Click on "Add SSH key".
 
-## Generating PGP keys and setting up self-signing
+## Generating GPG keys and setting up self-signing
 
 1. Open Terminal.app.
 2. Install GPG with Homebrew by running:
 
 `brew install gpg`
 
-1. Generate a new PGP key pair by running:
+1. Generate a new GPG key pair by running:
 
 `gpg --full-generate-key`
 
