@@ -235,3 +235,5 @@ resource "aws_s3_bucket" "b" {
 4. Verify that object lock has been configured for the S3 bucket in the AWS Management Console.
 
 With these tasks, you should now have a good understanding of how to create an S3 bucket using Terraform and configure various options for it.
+
+[//]: # (End of file drills/3-create_s3_bucket/README.md)

@@ -83,3 +83,5 @@ Note that the `password` output is marked as sensitive by setting `sensitive = t
 ## Conclusion
 
 In this lesson, you learned how to use Terraform resources to generate random values, including UUIDs, strings, and passwords. You also learned how to display the generated values using Terraform's `output` block. By using Terraform's built-in resources, you can easily generate random values for various use cases in the educational industry, such as generating student IDs, class codes, or teacher passwords.
+
+[//]: # (End of file drills/1-random-stuff-and-output/README.md)

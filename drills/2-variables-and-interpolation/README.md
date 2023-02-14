@@ -54,3 +54,5 @@ terraform apply
 ## Conclusion
 
 Congratulations! You have now made your Terraform logic flexible and portable.
+
+[//]: # (End of file drills/2-variables-and-interpolation/README.md)

@@ -1,1 +1,0 @@
-# Creating EC2 instances in AWS
