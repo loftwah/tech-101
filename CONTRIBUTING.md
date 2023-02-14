@@ -1,20 +1,20 @@
-# Contributing to \[Tech Bootcamp\]
+# Contributing to Tech Bootcamp
 
-We welcome contributions from all members of our internal development team. By contributing to \[Tech Bootcamp\], you can help improve the tool for our users and our team.
+We welcome contributions from all members of our internal development team. By contributing to Tech Bootcamp, you can help improve the tool for our users and our team.
 
 ## Reporting Bugs
 
-If you find a bug in \[Tech Bootcamp\], please report it to the project manager or team lead. They will create an issue in the project management tool and assign it to the appropriate team member.
+If you find a bug in Tech Bootcamp, please report it to the project manager or team lead. They will create an issue in the project management tool and assign it to the appropriate team member.
 
 Please include as much detail as possible, including the steps to reproduce the bug, the expected behavior, and the actual behavior.
 
 ## Requesting Features
 
-If you have a feature request for \[Tech Bootcamp\], please discuss it with the project manager or team lead. They will evaluate the feature request and prioritize it based on the project roadmap and other factors.
+If you have a feature request for Tech Bootcamp, please discuss it with the project manager or team lead. They will evaluate the feature request and prioritize it based on the project roadmap and other factors.
 
 ## Contributing Code
 
-If you would like to contribute code to \[Tech Bootcamp\], please follow these steps:
+If you would like to contribute code to Tech Bootcamp, please follow these steps:
 
 1. Create a new branch for your changes.
 2. Make your changes to the code.
@@ -28,8 +28,8 @@ Please note that all code contributions must follow our coding standards and be 
 
 ## Code of Conduct
 
-To ensure that \[Tech Bootcamp\] is a respectful and professional environment, we ask that all team members follow our code of conduct. The code of conduct can be found in the CODE\_OF\_CONDUCT.md file in the root of the repository.
+To ensure that Tech Bootcamp is a respectful and professional environment, we ask that all team members follow our code of conduct. The code of conduct can be found in the CODE\_OF\_CONDUCT.md file in the root of the repository.
 
-We encourage you to review the code of conduct before contributing to \[Tech Bootcamp\].
+We encourage you to review the code of conduct before contributing to Tech Bootcamp.
 
-Thank you for your interest in contributing to \[Tech Bootcamp\]. We look forward to your contributions!
+Thank you for your interest in contributing to Tech Bootcamp. We look forward to your contributions!
