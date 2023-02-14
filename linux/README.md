@@ -2,6 +2,8 @@
 
 Linux is a popular operating system that is widely used in server environments, cloud computing, and embedded systems. It is also a common choice for developers and is often used for software development, testing, and deployment.
 
+![Tux as a soldier](https://user-images.githubusercontent.com/19922556/218678080-b37bc8f8-45c6-4911-8b9d-04147e050a35.png)
+
 The Linux operating system is based on the Unix operating system and is known for its stability, security, and flexibility. It is an open-source operating system, meaning that its source code is freely available and can be modified and distributed by anyone.
 
 The Linux shell is a command-line interface that provides users with a way to interact with the operating system. It allows you to execute commands, run scripts, and perform a wide range of system administration tasks. While the Linux shell may be intimidating at first, it is a powerful tool that can help you be more productive and efficient in your work.
