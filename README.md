@@ -1,8 +1,8 @@
-# Welcome to Our Team
+# Welcome to the Tech Bootcamp
 
 We're excited to have you onboard and are looking forward to working with you. As a member of our team, you'll be working with some of the latest and greatest technologies, including AWS, Docker, Linux, Rails, Ruby, and Terraform. This guide will give you a brief introduction to these technologies, as well as some guides on how to get up and running with some of the tools we use on a daily basis.
 
-![Our Team](https://user-images.githubusercontent.com/19922556/218631229-cb041779-ac40-4714-85c3-7f64f3e6f52f.png)
+![Tech Bootcamp](https://user-images.githubusercontent.com/19922556/218755302-ab632a71-fee3-4383-bb35-4a4e3b65f45c.jpg)
 
 ## Team Name
 
