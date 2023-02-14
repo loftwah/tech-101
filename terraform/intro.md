@@ -2,6 +2,8 @@
 
 Terraform is an open-source infrastructure as code (IAC) tool developed and maintained by HashiCorp. It allows you to define and manage your infrastructure as code, meaning that you can write code that describes the desired state of your infrastructure resources, such as virtual machines, containers, databases, and more.
 
+![Infrastructure as Code](https://user-images.githubusercontent.com/19922556/218689625-627d7254-fba1-461f-9f27-1c2e97d28f23.png)
+
 This approach to infrastructure management provides several benefits, including:
 
 Version control: Because your infrastructure is defined as code, you can track changes and revert to previous versions if necessary, just as you would with application code.
