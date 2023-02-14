@@ -1,6 +1,6 @@
 # Terraform Bootcamp
 
-[Take the test](test/test.md)
+[drills](drills/README.md) | [test](test/test.md)
 
 Welcome to the SchoolStatus Terraform Bootcamp!
 

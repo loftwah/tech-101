@@ -1,6 +1,6 @@
 # Git and GitHub 101: A Comprehensive Overview of Version Control and Code Collaboration
 
-[Take the test](test/test.md)
+[drills](drills/README.md) | [test](test/test.md)
 
 Git is a distributed version control system that allows developers to track changes to code and collaborate on projects. It provides a way to manage code versions, track changes, and merge changes from multiple contributors.
 
