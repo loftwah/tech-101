@@ -19,6 +19,10 @@ We don't have a team name yet, but we're open to suggestions. If you have any id
 - The DevOps Dream Team
 - The Agile Avengers
 
+## Tech Bootcamp for our Development Team
+
+This GitHub repository is designed to provide resources and training materials for our development team's tech bootcamp. The bootcamp is a comprehensive training program that covers a range of technical topics, including software development, cloud computing, databases, and more. The repository contains code samples, tutorials, and other materials that are used in the bootcamp, as well as documentation on best practices and guidelines for our development team. The bootcamp is designed to help our team members build their skills and stay up to date with the latest technologies and practices in the industry.
+
 ## Getting Started
 
 Before diving into the specifics of our technology stack, we want to make sure you have all the tools you need to get up and running. Here are some of the tools we recommend you install:
