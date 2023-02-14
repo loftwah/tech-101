@@ -70,17 +70,55 @@ macOS
 
 ### Terraform
 
+#### Installing with tfenv (recommended)
+
+tfenv is a version manager for Terraform that makes it easy to install and use multiple versions of Terraform on the same system.
+
+1. Open your terminal and run the following commands to install tfenv:
+
+```bash
+git clone https://github.com/tfutils/tfenv.git ~/.tfenv
+echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+1. Install the desired version of Terraform by running the following command:
+
+`tfenv install 1.3.8`
+
+1. Set the global version of Terraform by running the following command:
+
+`tfenv use 1.3.8`
+
+1. Verify that Terraform is installed and the correct version is set by running the following commands:
+
+```bash
+tfenv --version
+terraform --version
+```
+
+#### Installing without tfenv
+
 Linux and macOS
 
-1. Open your terminal and run the following command to download the latest Terraform release for your operating system: `curl -O https://releases.hashicorp.com/terraform/1.3.8/terraform_1.3.8_darwin_amd64.zip`
-2. Unzip the downloaded file and move the binary to a directory in your system's `PATH`.
-3. Verify that Terraform is installed by running the following command: `terraform --version`
+1. Open your terminal and run the following command to download the latest Terraform release for your operating system:
+
+`curl -O https://releases.hashicorp.com/terraform/1.3.8/terraform_1.3.8_darwin_amd64.zip`
+
+1. Unzip the downloaded file and move the binary to a directory in your system's `PATH`.
+2. Verify that Terraform is installed by running the following command:
+
+`terraform --version`
 
 Windows
 
 1. Go to the [Terraform website](https://www.terraform.io/downloads.html) and download the appropriate package for Windows.
 2. Follow the installation instructions.
-3. Verify that Terraform is installed by running the following command: `terraform --version`
+3. Verify that Terraform is installed by running the following command:
+
+`terraform --version`
+
+Note: We recommend using tfenv to manage multiple versions of Terraform on the same system.
 
 ### Homebrew
 
