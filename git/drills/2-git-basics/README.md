@@ -1,6 +1,6 @@
 # Git and GitHub Basics
 
-This is a drill to help you or your students learn the basics of Git and GitHub. It is based on the [Git and GitHub Basics](https://lab.github.com/githubtraining/introduction-to-github) course on GitHub Learning Lab.
+This is a drill to help you or your team learn the basics of Git and GitHub. It is based on the [Git and GitHub Basics](https://lab.github.com/githubtraining/introduction-to-github) course on GitHub Learning Lab.
 
 ## What is Git?
 
@@ -58,4 +58,4 @@ Here are some basic GitHub features that you'll use frequently:
 * Reviewing changes: use the "Files changed" tab on a pull request to review and comment on code changes
 * Closing an issue: add a commit message that references the issue number (e.g., "Fixed #123"), and GitHub will automatically close the issue when the commit is merged
 
-That's it! I hope this drill helps you or your students learn the basics of Git and GitHub. Let me know if you have any questions or feedback.
+That's it! I hope this drill helps you or your team learn the basics of Git and GitHub. Let me know if you have any questions or feedback.

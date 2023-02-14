@@ -1,6 +1,6 @@
 # Git Clone: Cloning an Existing Git Repository
 
-This drill will help you or your students learn how to clone an existing Git repository, view repository information, pull changes from the remote repository, and branch and merge changes.
+This drill will help you or your team learn how to clone an existing Git repository, view repository information, pull changes from the remote repository, and branch and merge changes.
 
 ## Cloning a Git Repository
 
@@ -79,4 +79,4 @@ git commit -m "Added feature X"
     3. Add a title and description for your merge commit.
     4. Click on the "Confirm merge" button to merge the pull request.
 
-That's it! I hope this drill helps you or your students learn how to clone an existing Git repository, view repository information, pull changes from the remote repository, and branch and merge changes. Let me know if you have any questions or feedback.
+That's it! I hope this drill helps you or your team learn how to clone an existing Git repository, view repository information, pull changes from the remote repository, and branch and merge changes. Let me know if you have any questions or feedback.

@@ -70,4 +70,4 @@ build/
 
 `git commit -m "Added .gitignore file"`
 
-That's it! I hope this drill helps you or your students learn how to create a new Git repository, add and commit changes, view the commit history, and ignore files. Let me know if you have any questions or feedback.
+That's it! I hope this drill helps you or your team learn how to create a new Git repository, add and commit changes, view the commit history, and ignore files. Let me know if you have any questions or feedback.

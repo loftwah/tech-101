@@ -1,6 +1,6 @@
 # Git installation, configuration, and key generation on Mac
 
-This drill is designed to help you or your students learn how to install and configure Git on a Mac, and use it with GitHub securely.
+This drill is designed to help you or your team learn how to install and configure Git on a Mac, and use it with GitHub securely.
 
 ## Installing Git using Homebrew
 
@@ -93,4 +93,4 @@ You can switch between SSH and HTTPS for a given repository by changing the URL 
 
 To manage your credentials, you can use a credential helper, which stores your username and password or access token in an encrypted file. Git comes with several built-in helpers, such as the macOS Keychain for HTTPS, and the SSH agent for SSH. You can also use third-party helpers, such as Git Credential Manager Core (GCM Core) for cross-platform support.
 
-That's it! I hope this drill helps you or your students learn how to install and configure Git on a Mac, and use it with GitHub securely. Let me know if you have any questions or feedback.
+That's it! I hope this drill helps you or your team learn how to install and configure Git on a Mac, and use it with GitHub securely. Let me know if you have any questions or feedback.
