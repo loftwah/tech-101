@@ -1,5 +1,7 @@
 # Using Git and GitHub for Team Collaboration
 
+This is a drill that will teach you how to collaborate with your team on a Git repository hosted on GitHub.
+
 ## Setting Up a Team Repository
 
 1. Create a new repository on GitHub by following these steps:
