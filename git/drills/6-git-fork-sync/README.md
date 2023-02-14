@@ -85,4 +85,4 @@ Once you have merged the changes from the original repository into your local br
 
 `git push`
 
-That's it! I hope this drill helps you or your students learn how to keep a forked repository in sync with the original repository, add the original repository as a remote, fetch changes, merge changes, and push changes. Let me know if you have any questions or feedback.
+That's it! I hope this drill helps you or your team learn how to keep a forked repository in sync with the original repository, add the original repository as a remote, fetch changes, merge changes, and push changes. Let me know if you have any questions or feedback.
