@@ -24,13 +24,13 @@ Before you start, you should have the following:
 2. Tag the image with the URL of the ECR repository. For example:
 
 ```bash
-docker tag example-rails-app:latest 123456789012.dkr.ecr.us-west-2.amazonaws.com/example-rails-app:latest
+docker tag example-rails-app:latest 123456789012.dkr.ecr.ap-southeast-2.amazonaws.com/example-rails-app:latest
 ```
 
 1. Push the image to the ECR repository.
 
 ```bash
-docker push 123456789012.dkr.ecr.us-west-2.amazonaws.com/example-rails-app:latest
+docker push 123456789012.dkr.ecr.ap-southeast-2.amazonaws.com/example-rails-app:latest
 ```
 
 ## Updating the Docker Image
@@ -40,13 +40,13 @@ docker push 123456789012.dkr.ecr.us-west-2.amazonaws.com/example-rails-app:lates
 3. Tag the new image with the URL of the ECR repository. For example:
 
 ```bash
-docker tag example-rails-app:latest 123456789012.dkr.ecr.us-west-2.amazonaws.com/example-rails-app:latest
+docker tag example-rails-app:latest 123456789012.dkr.ecr.ap-southeast-2.amazonaws.com/example-rails-app:latest
 ```
 
 1. Push the new image to the ECR repository.
 
 ```bash
-docker push 123456789012.dkr.ecr.us-west-2.amazonaws.com/example-rails-app:latest
+docker push 123456789012.dkr.ecr.ap-southeast-2.amazonaws.com/example-rails-app:latest
 ```
 
 ## Next Steps

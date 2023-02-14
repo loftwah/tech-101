@@ -62,13 +62,13 @@ docker build -t example-rails-app .
 1. Tag the image with the URL of the ECR repository. For example:
 
 ```bash
-docker tag example-rails-app:latest 123456789012.dkr.ecr.us-west-2.amazonaws.com/example-rails-app:latest
+docker tag example-rails-app:latest 123456789012.dkr.ecr.ap-southeast-2.amazonaws.com/example-rails-app:latest
 ```
 
 1. Push the image to the ECR repository.
 
 ```bash
-docker push 123456789012.dkr.ecr.us-west-2.amazonaws.com/example-rails-app:latest
+docker push 123456789012.dkr.ecr.ap-southeast-2.amazonaws.com/example-rails-app:latest
 ```
 
 ## Writing the Terraform Code
@@ -79,7 +79,7 @@ docker push 123456789012.dkr.ecr.us-west-2.amazonaws.com/example-rails-app:lates
 
 ```hcl
 provider "aws" {
-region = "us-west-2"
+region = "ap-southeast-2"
 }
 
 resource "aws_ecs_cluster" "example-rails-app-cluster" {
@@ -91,7 +91,7 @@ family = "example-rails-app"
 container_definitions = jsonencode([
 {
 name = "example-rails-app"
-image = "123456789012.dkr.ecr.us-west-2.amazonaws.com/example-rails-app:latest"
+image = "123456789012.dkr.ecr.ap-southeast-2.amazonaws.com/example-rails-app:latest"
 portMappings = [
 {
 containerPort = 3000
@@ -100,7 +100,7 @@ containerPort = 3000
 environment = [
 {
 name = "DATABASE_URL"
-value = "postgresql://example-rails-app:password@example-rails-app.us-west-2.rds.amazonaws.com:5432/example-rails-app"
+value = "postgresql://example-rails-app:password@example-rails-app.ap-southeast-2.rds.amazonaws.com:5432/example-rails-app"
 }
 ]
 }

@@ -31,7 +31,7 @@ Name = "example-vpc"
 resource "aws_subnet" "public" {
 vpc_id = aws_vpc.example.id
 cidr_block = "10.0.1.0/24"
-availability_zone = "us-west-2a"
+availability_zone = "ap-southeast-2a"
 map_public_ip_on_launch = true
 
 tags = {
@@ -42,7 +42,7 @@ Name = "example-public-subnet"
 resource "aws_subnet" "private" {
 vpc_id = aws_vpc.example.id
 cidr_block = "10.0.2.0/24"
-availability_zone = "us-west-2b"
+availability_zone = "ap-southeast-2b"
 
 tags = {
 Name = "example-private-subnet"
@@ -174,7 +174,7 @@ Create an EBS volume to store your application's data.
 
 ```hcl
 resource "aws_ebs_volume" "example" {
-  availability_zone = "us-west-2a"
+  availability_zone = "ap-southeast-2a"
   size = 50
 
   tags = {
@@ -183,7 +183,7 @@ resource "aws_ebs_volume" "example" {
 }
 ```
 
-In this example, we are creating an EBS volume of size 50 GB in the availability zone us-west-2a.
+In this example, we are creating an EBS volume of size 50 GB in the availability zone ap-southeast-2a.
 
 - Next Steps
 
