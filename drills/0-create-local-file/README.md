@@ -54,4 +54,4 @@ To destroy the file, follow these steps:
 
 Now that you have created a local file, you can move on to the next exercise. In the next exercise, you will create a local file with a random name.
 
-[//]: # (End of file drills/0-create_local_file/README.md)
+[//]: # (End of file drills/0-create-local-file/README.md)

@@ -236,4 +236,4 @@ resource "aws_s3_bucket" "b" {
 
 With these tasks, you should now have a good understanding of how to create an S3 bucket using Terraform and configure various options for it.
 
-[//]: # (End of file drills/3-create_s3_bucket/README.md)
+[//]: # (End of file drills/3-create-s3-bucket/README.md)

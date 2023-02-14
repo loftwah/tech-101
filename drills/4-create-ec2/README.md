@@ -52,4 +52,4 @@ To destroy the EC2 instance, follow these steps:
 
 Now that you have created an EC2 instance with Terraform, you can move on to the next exercise. In the next exercise, you will learn how to manage multiple EC2 instances using Terraform.
 
-[//]: # (End of file drills/4-create_ec2_instance/README.md)
+[//]: # (End of file drills/4-create-ec2/README.md)
