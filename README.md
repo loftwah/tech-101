@@ -54,7 +54,7 @@ Docker is a containerization platform that enables you to develop, build, and de
 
 ### Getting Started with Linux
 
-[Our Linux bootcamp](linux/README.md) | [Our Git and GitHub bootcamp](git/README.md) | [Link to Linux for Pirates!](https://loftwah.github.io/linux-for-pirates)
+[Our Linux bootcamp](linux/README.md) | [Our Git and GitHub bootcamp](git/README.md) | [Linux for Pirates!](https://loftwah.github.io/linux-for-pirates)
 
 Linux is an open-source operating system that is widely used in web development.
 
