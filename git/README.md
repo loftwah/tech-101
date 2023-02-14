@@ -2,6 +2,8 @@
 
 Git is a distributed version control system that allows developers to track changes to code and collaborate on projects. It provides a way to manage code versions, track changes, and merge changes from multiple contributors.
 
+![Cloud magic](https://user-images.githubusercontent.com/19922556/218705587-4e983a5f-f829-4c32-af91-8e10f6d3cf93.png)
+
 Git provides a number of key features and concepts, including:
 
 * **Commits:** A commit is a snapshot of changes to a codebase. Git allows you to commit changes to a codebase and track them over time.
