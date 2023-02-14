@@ -32,6 +32,8 @@ Before diving into the specifics of our technology stack, we want to make sure y
 
 ## Guides
 
+[Our initial setup guide](setup.md)
+
 Here are some guides on how to get started with some of the tools we use on a daily basis:
 
 ### Getting Started with AWS
