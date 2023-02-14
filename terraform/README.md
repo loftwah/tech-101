@@ -46,7 +46,7 @@ To complete this course, you will need the following:
 
 ## Get Started
 
-What are you waiting for? Jump right into the [drills](drills/README.md) and start learning Terraform!
+What are you waiting for? Jump right into the [drills](drills/README.md) and start learning Terraform! Or you could read the [intro](intro.md) to learn more about Terraform.
 
 ## Course Resources
 
