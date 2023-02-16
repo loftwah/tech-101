@@ -1,43 +1,42 @@
-# Terraform Bootcamp
+# Git Bootcamp
 
 [drills](drills/README.md) | [test](test/test.md)
 
-Welcome to our Terraform Bootcamp!
+Welcome to our Git Bootcamp!
 
-![Terraform Bootcamp](https://user-images.githubusercontent.com/19922556/217238783-068597d5-91b0-4273-b21a-4c8b394a7b97.png)
+TBA
 
-In this course, you will learn how to use Terraform to manage your cloud infrastructure as code, specifically on AWS, which is a platform used by team. Terraform is a powerful tool developed by HashiCorp that makes it easy to create, change, and version resources in cloud platforms such as AWS.
+In this course, you will learn how to use Git to manage your code as version control system, specifically on Github, which is a widely-used platform for collaborative software development. Git is a powerful tool developed by Linus Torvalds that makes it easy to track changes in your code and collaborate with other developers.
 
-By using Terraform, you can define your infrastructure in human-readable configuration files and automate the process of provisioning and managing your resources. This means you can focus on your application, instead of worrying about the underlying infrastructure.
+By using Git, you can keep track of changes in your code, manage different versions of your software, and collaborate with others using Github. This means you can focus on building your application, instead of worrying about managing your codebase.
 
-In this bootcamp, we will specifically focus on AWS and show you how to use Terraform to deploy resources such as Virtual Private Clouds (VPCs), security groups, and virtual machines in AWS. You will also learn how to use Terraform to manage your infrastructure throughout its lifecycle and collaborate with other members of your team using Terraform Cloud.
+In this bootcamp, we will specifically focus on Github and show you how to use Git to manage your codebase. You will learn how to create repositories, commit changes, work with branches and pull requests, and collaborate with other members of your team using Github.
 
-So, buckle up and let's get started with Terraform at team!
+So, let's get started with Git and start collaborating with your team!
 
 ## Course Prerequisites
 
 To get the most out of this course, you should have a basic understanding of the following concepts:
 
-* The AWS platform
-* The Linux command line
+* The basics of programming
+* The command line interface
 
 ## Course Requirements
 
 To complete this course, you will need the following:
 
 * A computer with an internet connection
-* A free AWS account
-* Terraform installed on your computer
-* A text editor such as Visual Studio Code or Vim
+* A free Github account
+* Git installed on your computer
+* A text editor such as Visual Studio Code or Atom
 
 ## Get Started
 
-What are you waiting for? Jump right into the [drills](drills/README.md) and start learning Terraform! Or you could read the [intro](intro.md) to learn more about Terraform.
+What are you waiting for? Jump right into the [drillss](drills/README.md) and start learning Git! Or you could read the [intro](intro.md) to learn more about Git.
 
 ## Course Resources
 
-* [Terraform Documentation](https://www.terraform.io/docs/index.html)
-* [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-* [Terraform Cloud Documentation](https://www.terraform.io/docs/cloud/index.html)
-* [Terraform Cloud Free Tier](https://www.terraform.io/docs/cloud/free/index.html)
-* [Terraform Cloud Free Tier Signup](https://app.terraform.io/signup/account)
+* [Git Documentation](https://git-scm.com/doc)
+* [Github Guides](https://guides.github.com/)
+* [Github Desktop](https://desktop.github.com/)
+* [Git Cheat Sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
