@@ -2,7 +2,7 @@
 
 Docker is a platform that allows developers to build, ship, and run applications in containers. Containers are lightweight, portable environments that can run anywhere, making it easy to deploy applications across different environments and platforms.
 
-![Cute Docker mascot](https://user-images.githubusercontent.com/19922556/218705368-8d5101ce-f8ee-455f-b42a-d988c7071f6a.png)
+![Docker 101](https://user-images.githubusercontent.com/19922556/219297570-1d05f85c-4983-45e2-8dac-9da584b79d92.jpg)
 
 Docker provides a way to package an application and its dependencies into a container, which can be run on any system that supports Docker. This means that developers can build and test applications in a consistent environment, and then deploy them to production without worrying about differences in operating systems, libraries, or dependencies.
 
