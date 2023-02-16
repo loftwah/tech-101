@@ -2,6 +2,8 @@
 
 Ruby on Rails (often simply called Rails) is a popular web application framework built on top of the Ruby programming language. It provides a way to quickly build and deploy web applications by providing pre-built components and conventions for development.
 
+![Ruby on Rails 101](https://user-images.githubusercontent.com/19922556/219301849-ecf3805b-6512-4985-899c-be7dc3ec5448.jpg)
+
 Rails is known for its simplicity, convention over configuration approach, and its focus on rapid development. It has a large and active community of developers, and provides a wide range of tools and resources for building and deploying web applications.
 
 Here are some key features and concepts of Rails:
