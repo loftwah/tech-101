@@ -2,7 +2,7 @@
 
 Linux is a popular operating system that is widely used in server environments, cloud computing, and embedded systems. It is also a common choice for developers and is often used for software development, testing, and deployment.
 
-![Tux as a soldier](https://user-images.githubusercontent.com/19922556/218678080-b37bc8f8-45c6-4911-8b9d-04147e050a35.png)
+![Linux 101](https://user-images.githubusercontent.com/19922556/219300061-5c21e2de-bd3d-47f5-adf8-816ebb2d8023.jpg)
 
 The Linux operating system is based on the Unix operating system and is known for its stability, security, and flexibility. It is an open-source operating system, meaning that its source code is freely available and can be modified and distributed by anyone.
 
