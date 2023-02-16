@@ -4,7 +4,7 @@
 
 Welcome to our Terraform Bootcamp!
 
-![Terraform Bootcamp](https://user-images.githubusercontent.com/19922556/217238783-068597d5-91b0-4273-b21a-4c8b394a7b97.png)
+![Terraform 101](https://user-images.githubusercontent.com/19922556/219302916-57002f7c-a51f-4d0c-a70a-884e2c9cbc24.jpg)
 
 In this course, you will learn how to use Terraform to manage your cloud infrastructure as code, specifically on AWS, which is a platform used by team. Terraform is a powerful tool developed by HashiCorp that makes it easy to create, change, and version resources in cloud platforms such as AWS.
 
