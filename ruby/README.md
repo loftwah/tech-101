@@ -2,6 +2,8 @@
 
 Ruby is a dynamic, object-oriented programming language that is popular among web developers. It was created in Japan in the mid-1990s by Yukihiro "Matz" Matsumoto and has since become a widely used language in web development and other domains.
 
+![Ruby 101](https://user-images.githubusercontent.com/19922556/219305090-39ea6775-8c13-4b34-a041-71c1668f860f.jpg)
+
 Ruby is known for its simplicity and expressiveness. It is often used for web development, scripting, and automation, as well as for building desktop and mobile applications.
 
 Here are some key features and concepts of Ruby:
