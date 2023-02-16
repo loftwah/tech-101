@@ -4,7 +4,7 @@
 
 Amazon Web Services (AWS) is a cloud computing platform that provides a wide range of services for developers and businesses. It offers scalable and flexible cloud computing services, allowing you to build, deploy, and manage applications and infrastructure at any scale.
 
-![AWS 101](https://user-images.githubusercontent.com/19922556/219318568-a258411d-ccbe-451c-8ca2-0e89934c1a0f.jpg)
+![AWS 101](https://user-images.githubusercontent.com/19922556/219318896-d11ffd64-f8c3-4a8f-8b78-3a1d11fb0b16.jpg)
 
 ## Key AWS Services for Our Tech Stack
 
