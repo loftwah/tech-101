@@ -1,7 +1,5 @@
 # AWS 101: An Introduction to Amazon Web Services for Developers
 
-[operational-excellence](operational-excellence.md)
-
 Amazon Web Services (AWS) is a cloud computing platform that provides a wide range of services for developers and businesses. It offers scalable and flexible cloud computing services, allowing you to build, deploy, and manage applications and infrastructure at any scale.
 
 ![Army of cloud](https://user-images.githubusercontent.com/19922556/218678296-f17c84ec-d363-47c3-92b9-e2a0f39af65a.png)
