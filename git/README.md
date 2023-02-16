@@ -1,4 +1,4 @@
-# Git Bootcamp
+# Git & GitHub 101
 
 [drills](drills/README.md) | [test](test/test.md)
 
