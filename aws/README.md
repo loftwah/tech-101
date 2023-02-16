@@ -4,10 +4,6 @@ Amazon Web Services (AWS) is a cloud computing platform that provides a wide ran
 
 ![Army of cloud](https://user-images.githubusercontent.com/19922556/218678296-f17c84ec-d363-47c3-92b9-e2a0f39af65a.png)
 
-## Our AWS Guides
-
-[auto-scaling](auto-scaling.md) | [cloudwatch](cloudwatch.md) | [codebuild](codebuild.md) | [codedeploy](codedeploy.md) | [codepipeline](codepipeline.md) | [debugging-ec2](debugging-ec2.md) | [debugging-ecs](debugging-ecs.md) | [ec2](ec2.md) | [ecs](ecs.md) | [ecr](ecr.md) | [iam](iam.md) | [lambda](lambda.md) | [load-balancer](load-balancer.md) | [rds](rds.md) | [s3](s3.md) | [security-groups](security-groups.md) | [sso](sso.md) | [vpc](vpc.md)
-
 AWS provides a wide range of services, including compute, storage, databases, networking, security, and more. Some of the most commonly used services include:
 
 * **EC2:** Elastic Compute Cloud (EC2) provides resizable compute capacity in the cloud, allowing you to quickly scale up or down as needed.

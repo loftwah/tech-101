@@ -14,22 +14,6 @@ In this bootcamp, we will specifically focus on AWS and show you how to use Terr
 
 So, buckle up and let's get started with Terraform at team!
 
-## Next Steps
-
-The next steps in the team Terraform Bootcamp are:
-
-Introduction to Terraform Concepts: A comprehensive overview of Terraform and its key concepts, including providers, modules, and the state file.
-
-Setting up Terraform: A step-by-step guide on how to set up Terraform and integrate it with AWS.
-
-Writing Terraform Configuration Files: A hands-on session on how to write Terraform configuration files to manage your infrastructure.
-
-Terraform Plan and Apply: A deep dive into the Terraform Plan and Apply commands, including how to create execution plans, approve changes, and apply changes to your infrastructure.
-
-Collaborating with Terraform Cloud: A comprehensive overview of how to use Terraform Cloud to manage Terraform workflows across teams, including using shared state, role-based access controls, and a private registry.
-
-Deploying Infrastructure with Terraform: A hands-on session on how to deploy infrastructure with Terraform, including how to deploy a VPC, security groups, and virtual machines.
-
 ## Course Prerequisites
 
 To get the most out of this course, you should have a basic understanding of the following concepts:
