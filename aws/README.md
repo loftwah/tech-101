@@ -1,6 +1,6 @@
 # AWS 101: An Introduction to Amazon Web Services for Developers
 
-[drills](drills/README.md) | [test](#) | [solution](TechSolutions-example.md)
+[drills](drills/README.md) | [test](#)
 
 Amazon Web Services (AWS) is a cloud computing platform that provides a wide range of services for developers and businesses. It offers scalable and flexible cloud computing services, allowing you to build, deploy, and manage applications and infrastructure at any scale.
 

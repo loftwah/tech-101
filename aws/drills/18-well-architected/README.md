@@ -1,5 +1,7 @@
 # AWS Well-Architected Framework Review Guide
 
+[solution](TechSolutions-example.md)
+
 The AWS Well-Architected Framework provides a set of best practices for designing and operating reliable, secure, efficient, and cost-effective systems in the cloud. To conduct a review of your system against the AWS Well-Architected Framework, follow these steps:
 
 ## 1\. Operational Excellence
