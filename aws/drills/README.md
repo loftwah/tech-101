@@ -25,3 +25,4 @@ This directory contains a collection of drills for our AWS bootcamp.
 | [16-debugging-ec2](16-debugging-ec2/README.md) | Demonstrates how to debug EC2 instances |
 | [17-debugging-ecs](17-debugging-ecs/README.md) | Demonstrates how to debug ECS services |
 | [18-well-architected](18-well-architected/README.md) | Demonstrates how to use the Well-Architected Framework |
+| [19-aws-cli](19-aws-cli/README.md) | Overview of the AWS CLI |
