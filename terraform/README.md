@@ -1,4 +1,4 @@
-# Terraform Bootcamp
+# Terraform 101
 
 [drills](drills/README.md) | [test](test/test.md)
 
