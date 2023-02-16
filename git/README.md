@@ -4,7 +4,7 @@
 
 Welcome to our Git Bootcamp!
 
-TBA
+![Git & GitHub 101](https://user-images.githubusercontent.com/19922556/219299530-81034bd6-06f2-4d4d-8256-7445a76c6403.jpg)
 
 In this course, you will learn how to use Git to manage your code as version control system, specifically on Github, which is a widely-used platform for collaborative software development. Git is a powerful tool developed by Linus Torvalds that makes it easy to track changes in your code and collaborate with other developers.
 
