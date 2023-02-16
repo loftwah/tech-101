@@ -1,6 +1,8 @@
-# Drills
+# AWS Drills
 
-This directory contains a collection of drills for our bootcamp.
+This directory contains a collection of drills for our AWS bootcamp.
+
+![AWS Drills](https://user-images.githubusercontent.com/19922556/219307871-9ab50ad4-a79b-4de5-9ca2-40ded4d226c6.jpg)
 
 | Folder | Description |
 | --- | --- |
