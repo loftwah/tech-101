@@ -4,6 +4,8 @@
 
 Welcome to our software team! This guide will walk you through the installation, configuration, and usage of the tools we use.
 
+![Developer Introduction and Guide](https://user-images.githubusercontent.com/19922556/219306819-6c419776-5fe3-43b6-80ac-fe21866db870.jpg)
+
 ## Tools
 
 * **1Password**: password manager that securely stores and shares passwords and other sensitive information.
@@ -199,21 +201,6 @@ Windows
 1. Go to the [RubyInstaller website](https://rubyinstaller.org/downloads/) and download the latest version of Ruby.
 2. Follow the installation instructions.
 3. Verify that Ruby is installed by running the following command: `ruby --version`
-
-### 1Password CLI
-
-1Password CLI is a command-line tool that allows you to manage your 1Password account and vaults from the terminal.
-
-Linux and macOS
-
-1. Open your terminal and run the following command to install the 1Password CLI: `brew install 1password-cli` (for macOS) `curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg` `echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list > /dev/null` `sudo apt-get update && sudo apt-get install 1password -y` (for Linux)
-2. Verify that 1Password CLI is installed by running the following command: `op --version`
-
-Windows
-
-1. Go to the [1Password CLI website](https://1password.com/downloads/command-line/) and download the app for Windows.
-2. Follow the installation instructions.
-3. Verify that 1Password CLI is installed by running the following command: `op --version`
 
 ### Visual Studio Code
 
