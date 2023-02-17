@@ -16,9 +16,8 @@ You want to implement a program that can maintain a set of data in a Last-In-Fir
 
 ## Example
 
-rubyCopy code
-
-`class Stack
+```ruby
+class Stack
   def initialize
     @stack = []
   end
@@ -54,7 +53,8 @@ puts stack.pop # 1
 
 puts "Size of stack: #{stack.size}" # Size of stack: 0
 
-puts "Is stack empty? #{stack.empty?}" # Is stack empty? true`
+puts "Is stack empty? #{stack.empty?}" # Is stack empty? true
+```
 
 ## Exercises
 
