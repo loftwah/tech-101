@@ -1,10 +1,33 @@
 # A Guide to Terraform and AWS EC2 Instances
 
-This guide will walk you through the process of creating EC2 instances on AWS using Terraform. It will show you how to create an EC2 instance and configure it with Terraform. It will also show you how to use the four most common Terraform commands.
+This guide will walk you through the process of creating EC2 instances on AWS using Terraform.
+It will show you how to create an EC2 instance and configure it with Terraform.
+It will also show you how to use the four most common Terraform commands.
+ - EC2 stands for Elastic Cloud Comuputing.
+ - It is a virtual machine that is run on AWS.
+
+## Pre-requisites
+ 
+ - This example will show us how to create an EC2 instance with Terraform.
+ However, without being to connect to the machine, it is not very satisfying.
+ So, a prerequisite for this drill is to have n `ssh` key pair generated on your machine.
+
+ ### Generating an ssh key on you machine. Skip this step if you already have an ssh key
+ 
+1. Open a terminal and run `ssh-keygen`.
+1. You will be prompted for the location to save the key. You can hit `return` to accept the default.
+1. Leave the passphrase defaulted as empty and hit the `return` key.
+1. Hit `enter` again when prompted for the passphrase confirmation.
+1. 2 files will have been created in the directory you selected in step 2 (`id_rsa` and `id_rsa.pub`).
+The default location is `~/.ssh/`
+1. The `id_rsa.pub` is your public key and the `id_rsa` is your secret private key.
+1. This completes the ssh key pre-requisite for this drill.
+
 
 ## Creating an EC2 Instance
 
-In this exercise, we will create an EC2 instance on AWS. We will configure the instance with Terraform and then use the four common Terraform commands to manage the instance.
+In this exercise, we will create an EC2 instance on AWS using Terraform and then use
+the four common Terraform commands to manage the instance.
 
 ### Terraform Commands for this EC2 Instance
 
@@ -17,7 +40,7 @@ In this exercise, we will create an EC2 instance on AWS. We will configure the i
 
 ### `terraform init`
 
-This command only needs to be run when first starting with Terraform or when modules or resources are changed. Running this command again will not harm anything, but it will have no effect if there are no changes.
+This command only needs to be run when first starting with Terraform or when modules or resources are changed. Running this command again will not harm anything, but it will have no effect if there is no change.
 
 ### `terraform plan`
 
