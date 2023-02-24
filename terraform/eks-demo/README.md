@@ -86,7 +86,7 @@ rails generate controller welcome index
 - Replace the contents of app/views/welcome/index.html.erb with the following:
 
 ```ruby
-<h1>Hello, World!</h1>
+<h1>G'day, Mate!</h1>
 <p><%= @message %></p>
 ```
 
