@@ -1,6 +1,6 @@
 # Deploying a Database on Kubernetes with AWS, Ruby, Ruby on Rails, PostgreSQL, and Terraform
 
-Kubernetes is a powerful platform for managing containerized applications, and it can also be used to manage databases. In this article, we'll explore how to deploy a database on Kubernetes using AWS, Ruby, Ruby on Rails, PostgreSQL, and Terraform.
+Kubernetes is a powerful platform for managing containerized applications, and it can also be used to manage databases. In this guide, we'll explore how to deploy a database on Kubernetes using AWS, Ruby, Ruby on Rails, PostgreSQL, and Terraform.
 
 ## Prerequisites
 
