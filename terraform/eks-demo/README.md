@@ -136,7 +136,7 @@ This Dockerfile installs the necessary dependencies and copies over the applicat
 
 - Create a new Terraform configuration file named `main.tf` in the kubernetes directory with the following contents:
 
-```terraform
+```hcl
 provider "aws" {
   region = "ap-southeast-2"
 }
