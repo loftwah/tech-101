@@ -34,7 +34,7 @@ Multi-AZ deployment: disabled
 Publicly accessible: no
 VPC security group: Create a new one and allow inbound traffic on port 5432 from the CIDR range of your Kubernetes cluster.
 Create an EKS cluster with the following configuration:
-Kubernetes version: 1.18
+Kubernetes version: 1.20
 Node group: 1 node with instance type t2.small and the latest Amazon Linux 2 AMI.
 IAM role: Create a new one and attach the following policies:
 AmazonEKSClusterPolicy
