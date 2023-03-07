@@ -40,41 +40,17 @@ Before diving into the specifics of our technology stack, we want to make sure y
 
 Here are some guides on how to get started with some of the tools we use on a daily basis:
 
-### Getting Started with AWS
-
-[Our AWS bootcamp](aws/README.md) | [AWS docs](https://docs.aws.amazon.com/index.html)
-
-AWS is a cloud computing platform that provides a wide range of services and features to help you build, deploy, and manage applications in the cloud.
-
-### Getting Started with Docker
-
-[Our Docker bootcamp](docker/README.md) | [Docker docs](https://docs.docker.com)
-
-Docker is a containerization platform that enables you to develop, build, and deploy applications in a self-contained environment.
-
-### Getting Started with Linux
-
-[Our Linux bootcamp](linux/README.md) | [Our Git and GitHub bootcamp](git/README.md) | [Linux for Pirates!](https://loftwah.github.io/linux-for-pirates)
-
-Linux is an open-source operating system that is widely used in web development.
-
-### Getting Started with Rails
-
-[Our Rails bootcamp](ruby/rails/README.md) | [Rails docs](https://guides.rubyonrails.org) | [Rails tutorial](https://www.digitalocean.com/community/tutorials/how-to-build-a-ruby-on-rails-application)
-
-Rails is a web application framework written in Ruby that allows you to quickly build and deploy web applications.
-
-### Getting Started with Ruby
-
-[Our Ruby bootcamp](ruby/README.md) | [Ruby docs](https://www.ruby-lang.org/en/documentation)
-
-Ruby is a popular programming language used in web development.
-
-### Getting Started with Terraform
-
-[Our Terraform bootcamp](terraform/README.md) | [Terraform docs](https://developer.hashicorp.com/terraform/docs) | [intro](terraform/intro.md) | [drills](terraform/drills)
-
-Terraform is a tool used to build, change, and version infrastructure.
+| Topic          | Bootcamp                     | Documentation                                          |
+| -------------- | ---------------------------- | ------------------------------------------------------ |
+| AWS            | [Link](aws/README.md)        | [Link](https://docs.aws.amazon.com/index.html)         |
+| Docker         | [Link](docker/README.md)     | [Link](https://docs.docker.com)                        |
+| Git and GitHub | [Link](git/README.md)        | [Link](https://git-scm.com/doc)                                                      |
+| Kubernetes | [Link](kubernetes/LinkFree/README.md) | [Link](https://kubernetes.io/docs/home/) |
+| Linux          | [Link](linux/README.md)      | [Link](https://loftwah.github.io/linux-for-pirates)    |
+| Math | [Link](math/README.md) | [Link](https://schoolyourself.org/) |
+| Rails          | [Link](ruby/rails/README.md) | [Link](https://guides.rubyonrails.org)                 |
+| Ruby           | [Link](ruby/README.md)       | [Link](https://www.ruby-lang.org/en/documentation)     |
+| Terraform      | [Link](terraform/README.md)  | [Link](https://developer.hashicorp.com/terraform/docs) |
 
 ## Conclusion
 
