@@ -42,5 +42,5 @@ done
 ```
 
 - The above command will import all resources into Terraform, and generate a .tfstate file for each resource. These .tfstate files can be used to manage your resources using Terraform.
-- 
+
 That's it! You now have Terraform code for all resources under your AWS account. Note that the generated code may need to be modified to fit your specific needs, but this should give you a good starting point.
