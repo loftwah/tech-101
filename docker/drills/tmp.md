@@ -2,14 +2,6 @@
 
 This is a temp file with the drills I need to write.
 
-* What is Docker, and how does it work?
-* What is the purpose of Docker containers, and how do they differ from virtual machines?
-* What is a Docker image, and how is it created?
-* What is the purpose of a Dockerfile, and how is it used to create a Docker image?
-* How do you start the Docker daemon, and why might you need to do so?
-* How do you start a container with an interactive shell?
-* How do you shell into a running container?
-* How do you inspect a running container, and what information can you retrieve using this command?
 * How do you list the currently running containers, and how do you list all containers?
 * How do you remove all stopped containers, and why might you need to do so?
 * How do you list all images, and how do you remove all untagged images?
