@@ -1,8 +1,4 @@
-# Introduction to Docker
-
-Docker is a popular platform for building, shipping, and running applications in containers. In this tutorial, we'll cover the basics of Docker and how it works.
-
-## What is Docker?
+# What is Docker?
 
 Docker is a platform that allows developers to package their applications in containers. A container is a lightweight, standalone executable package that includes everything needed to run the application, including code, runtime, system tools, libraries, and settings. Containers are isolated from each other and from the host system, which means that you can run multiple containers on the same host without conflicts.
 
