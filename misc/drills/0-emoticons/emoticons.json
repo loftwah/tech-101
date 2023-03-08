@@ -1,0 +1,368 @@
+{
+    "emoticons": [
+        {
+            "emoticon": "Ꙩ_Ꙩ",
+            "name": "Sleepy eyes"
+        },
+        {
+            "emoticon": "⨀_⨀",
+            "name": "Surprised eyes"
+        },
+        {
+            "emoticon": "ꙩ_ꙩ",
+            "name": "Angry eyes"
+        },
+        {
+            "emoticon": "⨀_Ꙩ",
+            "name": "Shifty eyes"
+        },
+        {
+            "emoticon": "Ꙫ_Ꙫ",
+            "name": "Evil eyes"
+        },
+        {
+            "emoticon": "ꙫ_ꙫ",
+            "name": "Love eyes"
+        },
+        {
+            "emoticon": "ꙮ_ꙮ",
+            "name": "Blushing eyes"
+        },
+        {
+            "emoticon": "⨂_⨂",
+            "name": "Sparkling eyes"
+        },
+        {
+            "emoticon": "Ꙩ⌵Ꙩ",
+            "name": "Tired eyes"
+        },
+        {
+            "emoticon": "(/◔ ◡ ◔)/",
+            "name": "Happy face"
+        },
+        {
+            "emoticon": "(¬_¬)",
+            "name": "Unimpressed face"
+        },
+        {
+            "emoticon": "(´・ω・｀)",
+            "name": "Cute face"
+        },
+        {
+            "emoticon": "(ʘ_ʘ)",
+            "name": "Surprised face"
+        },
+        {
+            "emoticon": "(ʘ‿ʘ)",
+            "name": "Smiling face"
+        },
+        {
+            "emoticon": "(ಠ_ಠ)",
+            "name": "Disapproving face"
+        },
+        {
+            "emoticon": "(ಠ‾ಠ﻿)",
+            "name": "Sighing face"
+        },
+        {
+            "emoticon": "(ಠ‿ʘ)",
+            "name": "Mischievous face"
+        },
+        {
+            "emoticon": "(ಠ‿ಠ)",
+            "name": "Neutral face"
+        },
+        {
+            "emoticon": "(ಠ益ಠ)",
+            "name": "Angry face"
+        },
+        {
+            "emoticon": "(ಥ_ಥ)",
+            "name": "Crying face"
+        },
+        {
+            "emoticon": "(๏̯͡๏ )",
+            "name": "Confused face"
+        },
+        {
+            "emoticon": "(╬ಠ益ಠ)",
+            "name": "Angry face"
+        },
+        {
+            "emoticon": "(◕_◕)",
+            "name": "Cute face"
+        },
+        {
+            "emoticon": "(◕‿◕)",
+            "name": "Cute face"
+        },
+        {
+            "emoticon": "(◣_◢)",
+            "name": "Surprised face"
+        },
+        {
+            "emoticon": "(☞ﾟ ∀ﾟ )☞",
+            "name": "Pointing finger"
+        },
+        {
+            "emoticon": "(☼_☼)",
+            "name": "Sun face"
+        },
+        {
+            "emoticon": "(　・∀・)",
+            "name": "Laughing face"
+        },
+        {
+            "emoticon": "@_@",
+            "name": "Dizzy face"
+        },
+        {
+            "emoticon": "(ಠ ὡ ಠ )/",
+            "name": "Frustrated face"
+        },
+        {
+            "emoticon": "◕◡◕.",
+            "name": "Happy face"
+        },
+        {
+            "emoticon": "¬_¬",
+            "name": "Unimpressed face"
+        },
+        {
+            "emoticon": "¯(º o)/¯",
+            "name": "Shrug"
+        },
+        {
+            "emoticon": "¯(ºдಠ)/¯",
+            "name": "Shrug"
+        },
+        {
+            "emoticon": "°ω°",
+            "name": "Happy face"
+        },
+        {
+            "emoticon": "°Д°",
+            "name": "Surprised face"
+        },
+        {
+            "emoticon": "Ò,ó",
+            "name": "Angry face"
+        },
+        {
+            "emoticon": "ŎםŎ",
+            "name": "Cute face"
+        },
+        {
+            "emoticon": "Σ ◕ ◡ ◕",
+            "name": "Cute face"
+        },
+        {
+            "emoticon": "Σ(ﾟДﾟ )",
+            "name": "Surprised face"
+        },
+        {
+            "emoticon": "д_д",
+            "name": "Crying face"
+        },
+        {
+            "emoticon": "ф_ф",
+            "name": "Sleepy face"
+        },
+        {
+            "emoticon": "Ծ_Ծ",
+            "name": "Crying face"
+        },
+        {
+            "emoticon": "٩(͡๏̯ ͡๏)۶",
+            "name": "Excited face"
+        },
+        {
+            "emoticon": "٩(͡๏̯͡๏)۶",
+            "name": "Excited face"
+        },
+        {
+            "emoticon": "٩(ಥ_ಥ)۶",
+            "name": "Crying face"
+        },
+        {
+            "emoticon": "٩(•̮̮̃•̃)۶",
+            "name": "Happy face"
+        },
+        {
+            "emoticon": "٩(●̮̮̃•̃)۶",
+            "name": "Happy face"
+        },
+        {
+            "emoticon": "٩(●̮̮̃●̃)۶",
+            "name": "Happy face"
+        },
+        {
+            "emoticon": "٩๏̯͡๏)۶",
+            "name": "Confused face"
+        },
+        {
+            "emoticon": "இ_இ",
+            "name": "Sad face"
+        },
+        {
+            "emoticon": "ఠ_ఠ",
+            "name": "Dis"
+        },
+        {
+            "emoticon": "(¬‿¬)",
+            "name": "Smirking face"
+        },
+        {
+            "emoticon": "(ง'̀-'́)ง",
+            "name": "Fighting face"
+        },
+        {
+            "emoticon": "(づ｡◕‿‿◕｡)づ",
+            "name": "Cute hugging face"
+        },
+        {
+            "emoticon": "(づ￣ ³￣)づ",
+            "name": "Cute face"
+        },
+        {
+            "emoticon": "(づ｡◕‿‿◕｡)づ",
+            "name": "Cute face"
+        },
+        {
+            "emoticon": "(ಠ‿↼)",
+            "name": "Devious face"
+        },
+        {
+            "emoticon": "(ಥ⌣ಥ)",
+            "name": "Sad face"
+        },
+        {
+            "emoticon": "(╬ಠ益ಠ)",
+            "name": "Angry face"
+        },
+        {
+            "emoticon": "(ノಠ益ಠ)ノ彡┻━┻",
+            "name": "Flipping table"
+        },
+        {
+            "emoticon": "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
+            "name": "Excited face"
+        },
+        {
+            "emoticon": "¯\\_(ツ)_/¯",
+            "name": "Shrug"
+        },
+        {
+            "emoticon": "¯\\(°_o)/¯",
+            "name": "Shrug"
+        },
+        {
+            "emoticon": "(ノ・∀・)ノ",
+            "name": "Excited face"
+        },
+        {
+            "emoticon": "ヾ(⌐■_■)ノ♪",
+            "name": "Dancing"
+        },
+        {
+            "emoticon": "(ง'̀-'́)ง",
+            "name": "Angry face"
+        },
+        {
+            "emoticon": "(☞ﾟヮﾟ)☞",
+            "name": "Pointing finger"
+        },
+        {
+            "emoticon": "(☜(ﾟヮﾟ☜)",
+            "name": "Pointing finger"
+        },
+        {
+            "emoticon": "(≧◡≦)",
+            "name": "Cute face"
+        },
+        {
+            "emoticon": "(ಠ‿ಠ)",
+            "name": "Neutral face"
+        },
+        {
+            "emoticon": "( ͡° ͜ʖ ͡°)",
+            "name": "Lenny face"
+        },
+        {
+            "emoticon": "(ಠ⌣ಠ)",
+            "name": "Disapproving face"
+        },
+        {
+            "emoticon": "(☞ﾟヮﾟ)☞ ☜(ﾟヮﾟ☜)",
+            "name": "High five"
+        },
+        {
+            "emoticon": "(ʘᗩʘ')",
+            "name": "Worried face"
+        },
+        {
+            "emoticon": "(ʘ‿ʘ)╯",
+            "name": "Flipping table"
+        },
+        {
+            "emoticon": "(っ◕‿◕)っ",
+            "name": "Cute face"
+        },
+        {
+            "emoticon": "(╯°□°）╯︵ ┻━┻",
+            "name": "Flipping table"
+        },
+        {
+            "emoticon": "(ಥ\_ಥ)ノ彡┻━┻",
+            "name": "Flipping table"
+        },
+        {
+            "emoticon": "(ಠ\_ಠ)",
+            "name": "Disapproving face"
+        },
+        {
+            "emoticon": "(ಠ‿ಠ)",
+            "name": "Neutral face"
+        },
+        {
+            "emoticon": "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
+            "name": "Excited face"
+        },
+        {
+            "emoticon": "(づ｡◕‿‿◕｡)づ",
+            "name": "Cute face"
+        },
+        {
+            "emoticon": "(¬‿¬)",
+            "name": "Smirking face"
+        },
+        {
+            "emoticon": "( ͡° ͜ʖ ͡°)",
+            "name": "Lenny face"
+        },
+        {
+            "emoticon": "(づ￣ ³￣)づ",
+            "name": "Cute face"
+        },
+        {
+            "emoticon": "(╯°□°)╯︵ ʞooqǝɔɐɟ",
+            "name": "Flipping table"
+        },
+        {
+            "emoticon": "(ノಠ益ಠ)ノ彡┻━┻",
+            "name": "Flipping table"
+        },
+        {
+            "emoticon": "(╯°□°）╯︵ ┻━┻ ︵ ╯(°□° ╯)",
+            "name": "Flipping table"
+        },
+        {
+            "emoticon": "(ง ͠° ͟ʖ ͡°)ง",
+            "name": "Lenny face"
+        },
+        {
+            "emoticon": "(⊙\_⊙)",
+            "name": "Surprised face"
+        }
+    ]
+}
