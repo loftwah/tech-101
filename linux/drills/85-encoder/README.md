@@ -73,11 +73,11 @@ This will create a new file called `decoded` that contains the original contents
 
 ```bash
 # Encode text only
-./encode.sh -e "Once upon a time"
+./encoder.sh -e "Once upon a time"
 # Encode file only
-./encode.sh -e file.txt
+./encoder.sh -e file.txt
 # Encode text with instructions
-./encode.sh -ed "Once upon a time"
+./encoder.sh -ed "Once upon a time"
 # Encode file with instructions
-./encode.sh -ed file.txt
+./encoder.sh -ed file.txt
 ```
