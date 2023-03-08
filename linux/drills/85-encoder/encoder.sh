@@ -27,7 +27,7 @@ while getopts "he:d:" opt; do
       input="$OPTARG"
       ;;
     d )
-      input="$OPTARG"
+      input="$2"
       with_instructions=true
       ;;
     \? )
@@ -47,11 +47,13 @@ fi
 # Encode the input text
 encoded=$(echo "$input" | gzip -cf | base64)
 
-# Print the encoded text
+# Print the encoded text and decoding instructions separately
 if [ "$with_instructions" = true ]; then
-  # Print the encoded text with decoding instructions
+  # Print the decoding instructions
   echo "To decode the message, run the following command:"
   echo "echo '$encoded' | base64 -d | gunzip"
+
+  # Print the encoded text
   echo ""
   echo "Encoded message:"
   echo "$encoded"

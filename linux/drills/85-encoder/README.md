@@ -81,3 +81,28 @@ This will create a new file called `decoded` that contains the original contents
 # Encode file with instructions
 ./encoder.sh -ed file.txt
 ```
+
+Here's how you could manually encode and decode a message using gzip and base64:
+
+Encoding:
+
+1. Take the message you want to encode, for example "Hello world!".
+2. Use gzip to compress the message: `echo "Hello world!" | gzip -cf`.
+
+This will output a compressed version of the message that looks like a random string of characters, for example: `H4sIAAAAAAAA/8pIzcnJBwAi7ADUwgEAHgBjUEYgAAAA==`.
+
+3. Use base64 to convert the compressed message to base64: `echo "H4sIAAAAAAAA/8pIzcnJBwAi7ADUwgEAHgBjUEYgAAAA==" | base64`.
+
+This will output the encoded message: `SDBzSUFBQUFBQUFBQTwvMVBzSjlCd0FpN0FERUZvNUNWc0hkZ2Q2TTc5Qy9Iaz0K`.
+
+Decoding:
+
+1. Take the encoded message, for example `SDBzSUFBQUFBQUFBQTwvMVBzSjlCd0FpN0FERUZvNUNWc0hkZ2Q2TTc5Qy9Iaz0K`.
+2. Use base64 to decode the message: `echo "SDBzSUFBQUFBQUFBQTwvMVBzSjlCd0FpN0FERUZvNUNWc0hkZ2Q2TTc5Qy9Iaz0K" | base64 -d`.
+
+This will output the compressed message: `H4sIAAAAAAAAA/8pIzcnJBwAi7ADUwgEAHgBjUEYgAAAA==`.
+
+3. Use gzip to decompress the message: `echo "H4sIAAAAAAAAA/8pIzcnJBwAi7ADUwgEAHgBjUEYgAAAA==" | gunzip -c`.
+
+This will output the original message: `Hello world!`.
+
