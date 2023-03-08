@@ -68,3 +68,16 @@ This will create a new file called `decoded.gz` that contains the compressed dat
 `gunzip decoded.gz`
 
 This will create a new file called `decoded` that contains the original contents of the file.
+
+## Quick Reference
+
+```bash
+# Encode text only
+./encode.sh -e "Once upon a time"
+# Encode file only
+./encode.sh -e file.txt
+# Encode text with instructions
+./encode.sh -ed "Once upon a time"
+# Encode file with instructions
+./encode.sh -ed file.txt
+```
