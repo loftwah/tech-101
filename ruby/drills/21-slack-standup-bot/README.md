@@ -361,3 +361,58 @@ end
 Make sure to update the Jira user field in the `fetch_assigned_tasks` function to match the email address of the assignee in your Jira instance. The field may be different depending on your Jira configuration.
 
 Now, the standup bot will fetch assigned tasks from Jira for each user and display them during the standup. By integrating the bot with Jira, you can help team members keep track of their tasks and better facilitate discussions around their progress during standup meetings.
+
+To store standup replies and post a summary in a dedicated Slack channel, you can make the following modifications to the `standup_bot.rb` script:
+
+1. Create a new Slack channel for standup summaries (e.g., `#standup-summary`) and invite the bot to the channel.
+2. Update the `standup_bot.rb` script to listen for replies in the standup threads and post a summary of the updates in the `#standup-summary` channel.
+
+First, add a method to format the summary message:
+
+```ruby
+def format_summary_message(user_id, question, answer)
+  user_info = client.users_info(user: user_id)
+  user_name = user_info['user']['name']
+  "User: *#{user_name}*\nQuestion: #{question}\nAnswer: #{answer}\n\n"
+end
+```
+
+Next, update the main part of the script to wait for user replies and post a summary in the `#standup-summary` channel:
+
+```ruby
+# ... (previous code)
+
+# Check each user's schedule
+schedules.each do |user_id, standup_time|
+  # If the current UTC time matches the user's standup time
+  if current_utc_time == standup_time
+    # ... (previous standup code)
+
+    # Wait for user replies and collect their answers
+    answers = []
+    questions.each_with_index do |question, index|
+      # Listen for the user's reply to each question
+      response_received = false
+      while !response_received
+        replies = client.conversations_replies(channel: user_id, ts: initial_message['ts'])
+        reply = replies['messages'].find { |message| message['text'] == question }
+        
+        if reply && reply['replies'] && reply['replies'].any? { |r| r['user'] == user_id }
+          response_received = true
+          reply_ts = reply['replies'].find { |r| r['user'] == user_id }['ts']
+          answer = client.conversations_replies(channel: user_id, ts: reply_ts)['messages'].first['text']
+          answers << { question: question, answer: answer }
+        else
+          sleep 10 # Check for replies every 10 seconds
+        end
+      end
+    end
+
+    # Post the summary of standup updates in the #standup-summary channel
+    summary = answers.map { |a| format_summary_message(user_id, a[:question], a[:answer]) }.join
+    client.chat_postMessage(channel: '#standup-summary', text: "Standup Summary for <@#{user_id}>:\n\n#{summary}")
+  end
+end
+```
+
+Now, the standup bot will wait for user replies in the standup threads and post a summary of the updates in the `#standup-summary` channel. This will make it easier to track progress over time and review team updates in a single place.
