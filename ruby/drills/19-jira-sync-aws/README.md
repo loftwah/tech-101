@@ -1,6 +1,6 @@
-# Guide: Syncing GitHub and Jira using Ruby and AWS
+# Guide: Syncing GitHub and Jira using Ruby and AWS with Pull Request Label Updates
 
-This guide will help you set up a synchronization between GitHub and Jira using Ruby and AWS services. By following these steps, you can keep your GitHub issues and Jira tickets in sync, enabling better collaboration between your development and project management teams.
+This guide will help you set up synchronization between GitHub and Jira using Ruby and AWS services. The new functionality will move a Jira issue to a specified column when a specific label is added to a pull request in GitHub.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ end
 
 ## Step 2: Implement methods for synchronization
 
-Add methods to the `GithubJiraSync` class for fetching and syncing issues between GitHub and Jira.
+Add methods to the `GithubJiraSync` class for fetching and syncing issues between GitHub and Jira, and handling the pull request label event.
 
 ```ruby
 # Add to GithubJiraSync class
@@ -51,6 +51,28 @@ end
 
 def sync_tickets_to_github(jira_tickets, repo_owner, repo_name)
   # Create/update GitHub issues based on Jira tickets
+end
+
+def update_jira_issue_based_on_pr_label(pr_event, label_name, column_name)
+  return unless pr_event['action'] == 'labeled' && pr_event['label']['name'] == label_name
+
+  jira_ticket_key = extract_jira_ticket_key(pr_event)
+  return unless jira_ticket_key
+
+  move_jira_ticket_to_column(jira_ticket_key, column_name)
+end
+
+def extract_jira_ticket_key(pr_event)
+  pr_title = pr_event['pull_request']['title']
+  pr_description = pr_event['pull_request']['body']
+  jira_ticket_key_regex = /([A-Z]+-\d+)/
+
+  jira_ticket_key = pr_title[jira_ticket_key_regex] || pr_description[jira_ticket_key_regex]
+  jira_ticket_key
+end
+
+def move_jira_ticket_to_column(jira_ticket_key, column_name)
+  # Implement Jira API calls to move the ticket to the specified column
 end
 ```
 
@@ -98,10 +120,10 @@ Create a webhook in your GitHub repository to send events to your AWS API Gatewa
 3. Click the "Add webhook" button.
 4. In the "Payload URL" field, enter the API endpoint URL from your AWS API Gateway trigger.
 5. Choose "application/json" as the content type.
-6. Select the events you want to trigger the webhook, such as "Issues" and "Issue comments."
+6. Select the events you want to trigger the webhook, such as "Issues," "Issue comments," and "Pull requests."
 7. Click "Add webhook."
 
-Now, whenever there is an event in your GitHub repository, a request will be sent to your API Gateway endpoint, which will trigger your Lambda function to synchronize the GitHub issues with Jira tickets.
+Now, whenever there is an event in your GitHub repository, a request will be sent to your API Gateway endpoint, which will trigger your Lambda function to synchronize the GitHub issues with Jira tickets and move the Jira issue to the specified column when a specific label is added to a pull request in GitHub.
 
 ## Step 7: Test and verify
 
@@ -111,5 +133,7 @@ To test and verify the synchronization:
 2. Check your Jira project for a new ticket that matches the GitHub issue.
 3. Update the issue in GitHub and verify the changes are reflected in the corresponding Jira ticket.
 4. Create a new ticket in Jira and verify that a new issue is created in your GitHub repository.
+5. Create a pull request in your GitHub repository and add the specific label to it.
+6. Verify that the corresponding Jira issue is moved to the specified column.
 
-If the synchronization is working as expected, you have successfully set up GitHub and Jira integration using Ruby and AWS.
+If the synchronization is working as expected, you have successfully set up GitHub and Jira integration using Ruby and AWS with the new pull request label update functionality.
