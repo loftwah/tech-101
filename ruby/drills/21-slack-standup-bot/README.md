@@ -631,3 +631,24 @@ questions = generate_adaptive_questions(user_id)
 4. Test the standup bot to ensure that the adaptive questions are being generated correctly and used in the standup process.
 
 By using the OpenAI API to generate adaptive questions, your standup bot can tailor the questions to each team member's specific context and work progress. This can help to make the standup process more engaging and effective in capturing valuable insights about your team's work.
+
+A `.env.example` file is a template that shows the necessary environment variables for a project without revealing sensitive information. You can create a `.env.example` file to help other developers set up the project. For the standup bot, your `.env.example` file should look like this:
+
+```makefile
+SLACK_API_TOKEN=<your_slack_api_token>
+JIRA_EMAIL=<your_jira_email>
+JIRA_API_TOKEN=<your_jira_api_token>
+```
+
+Make sure to replace `<your_slack_api_token>`, `<your_jira_email>`, and `<your_jira_api_token>` with appropriate placeholder values, such as `your_slack_api_token_here`, `your_jira_email_here`, and `your_jira_api_token_here`.
+
+When someone sets up the project, they should create a `.env` file in the project root directory, copy the contents of the `.env.example` file, and replace the placeholder values with their actual API tokens and credentials.
+
+To load the environment variables from the `.env` file in your Ruby script, you can use the `dotenv` gem. Add it to your `Gemfile`, run `bundle install`, and then require and load it in your `standup_bot.rb` script:
+
+```ruby
+require 'dotenv'
+Dotenv.load
+```
+
+With the `dotenv` gem, you can access the environment variables using `ENV['variable_name']` in your script.
