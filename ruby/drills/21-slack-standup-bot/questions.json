@@ -1,6 +1,6 @@
 [
-    "1. What did you work on yesterday?",
-    "2. What are you working on today?",
-    "3. Are there any blockers or impediments?"
-  ]
-  
+  "What did you accomplish yesterday?",
+  "What are you working on today?",
+  "Are there any blockers?",
+  "On a scale of 1 to 5, how would you rate your mood today?"
+]
