@@ -172,3 +172,203 @@ Mood check: Add an optional mood check question to gauge team members' well-bein
 Adaptive questioning: Make the bot smarter by having it ask follow-up questions based on team members' responses. For example, if someone mentions a blocker, the bot could ask for more information or offer assistance.
 
 By exploring these ideas and more, you can create a more versatile and efficient standup bot that caters to your team's needs and helps improve overall team communication and productivity.
+
+1. **Threaded responses**
+
+Modify the `standup_bot.rb` script to send the questions as threaded messages:
+
+```ruby
+# ... (previous code)
+
+# Send a message to the standup channel
+initial_message = client.chat_postMessage(channel: '#standup', text: 'Daily Standup Time! Please share your updates:')
+
+# Send questions one by one as threaded messages
+questions.each do |question|
+  client.chat_postMessage(channel: '#standup', text: question, thread_ts: initial_message['ts'])
+  sleep 5 # Pause for 5 seconds between questions
+end
+```
+
+Now, the standup questions will be sent as threaded messages, encouraging team members to reply within the thread.
+
+2. **Reminders**
+
+To implement reminders, first, fetch the list of users in the channel and store their user IDs. Then, send a reminder message to those who haven't replied in the thread after a specified amount of time.
+
+Add the following code at the end of the `standup_bot.rb` script:
+
+```ruby
+# ... (previous code)
+
+# Fetch the list of users in the channel
+channel_info = client.conversations_info(channel: '#standup')
+channel_members = channel_info['channel']['members']
+
+# Set reminder time (in seconds)
+reminder_time = 3600 # 1 hour
+
+# Wait for the reminder time
+sleep reminder_time
+
+# Fetch the replies in the thread
+replies = client.conversations_replies(channel: '#standup', ts: initial_message['ts'])
+
+# Collect user IDs of those who replied in the thread
+replied_user_ids = replies['messages'].map { |message| message['user'] }.uniq
+
+# Send reminder messages to those who haven't replied
+(channel_members - replied_user_ids).each do |user_id|
+  client.chat_postMessage(channel: user_id, text: "Friendly reminder: Please share your standup updates in the #standup channel.")
+end
+```
+
+Now the bot will send reminder messages to the users who haven't replied in the standup thread after the specified reminder time.
+
+3. **Customizable standup schedule**
+
+To implement customizable standup schedules, you can store user-specific schedules in a JSON file, update the GitHub Actions workflow to run more frequently, and modify the Ruby script to check each user's schedule before sending standup messages.
+
+1. Create a new file called `schedules.json` in your project directory and add user-specific standup schedules in the following format:
+
+```
+jsonCopy code
+{
+  "U12345678": "14:00",
+  "U87654321": "16:00"
+}
+```
+
+Replace `U12345678` and `U87654321` with actual Slack user IDs, and set the desired standup times in 24-hour format.
+
+2. Update the `.github/workflows/standup_bot.yml` file to run the GitHub Actions workflow more frequently. Change the `cron` schedule to run every hour, Monday to Friday:
+
+```yaml
+on:
+  schedule:
+    - cron: '0 * * * 1-5' # Runs every hour, Monday to Friday
+```
+
+3. Modify the `standup_bot.rb` script to load user schedules from the JSON file and send standup messages based on individual schedules:
+
+```ruby
+require 'json'
+require 'slack-ruby-client'
+
+# Load questions and schedules from JSON files
+questions_file = File.read('questions.json')
+questions = JSON.parse(questions_file)
+
+schedules_file = File.read('schedules.json')
+schedules = JSON.parse(schedules_file)
+
+# Configure the Slack client
+Slack.configure do |config|
+  config.token = ENV['SLACK_API_TOKEN']
+end
+
+# Initialize the Slack client
+client = Slack::Web::Client.new
+
+# Get the current UTC time in 24-hour format
+current_utc_time = Time.now.utc.strftime('%H:%M')
+
+# Check each user's schedule
+schedules.each do |user_id, standup_time|
+  # If the current UTC time matches the user's standup time
+  if current_utc_time == standup_time
+    # Send a direct message to the user to start the standup
+    initial_message = client.chat_postMessage(channel: user_id, text: 'Daily Standup Time! Please share your updates:')
+
+    # Send questions one by one as threaded messages
+    questions.each do |question|
+      client.chat_postMessage(channel: user_id, text: question, thread_ts: initial_message['ts'])
+      sleep 5 # Pause for 5 seconds between questions
+    end
+  end
+end
+```
+
+Now, the standup bot will check each user's schedule and send personalized standup messages based on their preferred standup times.
+
+Remember to update the `schedules.json` file with the correct Slack user IDs and desired standup times. You can add or remove users and adjust their standup times as needed, and the bot will automatically adapt to the changes.
+
+To integrate the standup bot with Jira, you'll need to fetch assigned tasks using the Jira API and display them during the standup. First, you need to create an API token for your Jira account.
+
+1. Go to <https://id.atlassian.com/manage/api-tokens> and create an API token.
+2. Add the following environment variables to the `.github/workflows/standup_bot.yml` file to store your Jira email, API token, and domain:
+
+```yaml
+- name: Run standup bot
+  run: ruby standup_bot.rb
+  env:
+    SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+    JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+    JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+    JIRA_DOMAIN: ${{ secrets.JIRA_DOMAIN }}
+```
+
+3. In your GitHub repository settings, navigate to the "Secrets" section and add new secrets for `JIRA_EMAIL`, `JIRA_API_TOKEN`, and `JIRA_DOMAIN`.
+4. Install the `jira-ruby` gem by adding the following line to your `standup_bot.rb` script:
+
+```ruby
+require 'jira-ruby'
+```
+
+5. Create a function in the `standup_bot.rb` script to fetch assigned tasks for a user:
+
+```ruby
+def fetch_assigned_tasks(email, domain, api_token)
+  options = {
+    username: email,
+    password: api_token,
+    site: "https://#{domain}.atlassian.net",
+    context_path: '',
+    auth_type: :basic,
+    read_timeout: 120
+  }
+
+  client = JIRA::Client.new(options)
+
+  # Replace `assignee` with the Jira user field that matches the user's email
+  issues = client.Issue.jql("assignee = '#{email}' AND status != 'Done'")
+
+  issues.map { |issue| "#{issue.key}: #{issue.summary}" }
+end
+```
+
+6. Modify the `standup_bot.rb` script to fetch assigned tasks for each user and display them before sending standup questions:
+
+```ruby
+# ... (previous code)
+
+# Check each user's schedule
+schedules.each do |user_id, standup_time|
+  # If the current UTC time matches the user's standup time
+  if current_utc_time == standup_time
+    # Fetch the user's Slack profile to get their email
+    user_info = client.users_info(user: user_id)
+    user_email = user_info['user']['profile']['email']
+
+    # Fetch assigned tasks from Jira
+    assigned_tasks = fetch_assigned_tasks(user_email, ENV['JIRA_DOMAIN'], ENV['JIRA_API_TOKEN'])
+
+    # Send a direct message to the user to start the standup
+    initial_message = client.chat_postMessage(channel: user_id, text: 'Daily Standup Time! Please share your updates:')
+
+    # Display assigned tasks
+    task_message = "Here are your assigned tasks:\n" + assigned_tasks.join("\n")
+    client.chat_postMessage(channel: user_id, text: task_message, thread_ts: initial_message['ts'])
+
+    # Send questions one by one as threaded messages
+    questions.each do |question|
+      client.chat_postMessage(channel: user_id, text: question, thread_ts: initial_message['ts'])
+      sleep 5 # Pause for 5 seconds between questions
+    end
+  end
+end
+```
+
+Make sure to update the Jira user field in the `fetch_assigned_tasks` function to match the email address of the assignee in your Jira instance. The field may be different depending on your Jira configuration.
+
+Now, the standup bot will fetch assigned tasks from Jira for each user and display them during the standup. By integrating the bot with Jira, you can help team members keep track of their tasks and better facilitate discussions around their progress during standup meetings.
