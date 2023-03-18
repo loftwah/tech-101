@@ -2,7 +2,7 @@
 
 In this guide, we'll walk you through the process of creating a daily standup bot using Ruby, GitHub Actions, and Slack. The bot will automate the process of collecting daily updates from team members in a designated Slack channel. This will help teams stay aligned and informed about each other's progress and blockers.
 
-![Daily Standup Bot](https://user-images.githubusercontent.com/19922556/226093166-3d0319c2-601b-44ca-bce6-cd71a885d34f.png)
+![Daily Standup Bot](https://user-images.githubusercontent.com/19922556/226093259-5d8969f3-12ac-496c-90be-115b6e0cfa0e.png)
 
 ## Prerequisites
 
