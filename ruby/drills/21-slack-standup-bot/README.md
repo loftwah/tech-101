@@ -162,7 +162,7 @@ Adaptive questioning: Make the bot smarter by having it ask follow-up questions 
 
 By exploring these ideas and more, you can create a more versatile and efficient standup bot that caters to your team's needs and helps improve overall team communication and productivity.
 
-1. **Threaded responses**
+### **Threaded responses**
 
 Modify the `standup_bot.rb` script to send the questions as threaded messages:
 
@@ -181,7 +181,7 @@ end
 
 Now, the standup questions will be sent as threaded messages, encouraging team members to reply within the thread.
 
-2. **Reminders**
+### **Reminders**
 
 To implement reminders, first, fetch the list of users in the channel and store their user IDs. Then, send a reminder message to those who haven't replied in the thread after a specified amount of time.
 
@@ -214,14 +214,13 @@ end
 
 Now the bot will send reminder messages to the users who haven't replied in the standup thread after the specified reminder time.
 
-3. **Customizable standup schedule**
+### **Customizable standup schedule**
 
 To implement customizable standup schedules, you can store user-specific schedules in a JSON file, update the GitHub Actions workflow to run more frequently, and modify the Ruby script to check each user's schedule before sending standup messages.
 
 1. Create a new file called `schedules.json` in your project directory and add user-specific standup schedules in the following format:
 
-```
-jsonCopy code
+```json
 {
   "U12345678": "14:00",
   "U87654321": "16:00"
@@ -281,6 +280,8 @@ end
 Now, the standup bot will check each user's schedule and send personalized standup messages based on their preferred standup times.
 
 Remember to update the `schedules.json` file with the correct Slack user IDs and desired standup times. You can add or remove users and adjust their standup times as needed, and the bot will automatically adapt to the changes.
+
+### **Jira integration**
 
 To integrate the standup bot with Jira, you'll need to fetch assigned tasks using the Jira API and display them during the standup. First, you need to create an API token for your Jira account.
 
@@ -362,6 +363,8 @@ Make sure to update the Jira user field in the `fetch_assigned_tasks` function t
 
 Now, the standup bot will fetch assigned tasks from Jira for each user and display them during the standup. By integrating the bot with Jira, you can help team members keep track of their tasks and better facilitate discussions around their progress during standup meetings.
 
+### **Summary**
+
 To store standup replies and post a summary in a dedicated Slack channel, you can make the following modifications to the `standup_bot.rb` script:
 
 1. Create a new Slack channel for standup summaries (e.g., `#standup-summary`) and invite the bot to the channel.
@@ -416,3 +419,215 @@ end
 ```
 
 Now, the standup bot will wait for user replies in the standup threads and post a summary of the updates in the `#standup-summary` channel. This will make it easier to track progress over time and review team updates in a single place.
+
+### **Analytics and visualization**
+
+To implement analytics and visualization, you can create a simple web dashboard using the Sinatra web framework and the Chartkick gem to display standup data. Here's a step-by-step guide on how to set up the web dashboard:
+
+1. Install the required gems by adding the following lines to your `standup_bot.rb` script:
+
+```ruby
+require 'sinatra'
+require 'chartkick'
+require 'sinatra/chartkick'
+```
+
+2. Create a new directory named `public` in your project directory to store the standup data in a JSON file. Update the `standup_bot.rb` script to store standup replies in the `public/standup_data.json` file:
+
+```ruby
+# ... (previous code)
+
+def store_standup_data(user_id, answers)
+  standup_data_file = 'public/standup_data.json'
+  
+  standup_data = if File.exist?(standup_data_file)
+    JSON.parse(File.read(standup_data_file))
+  else
+    {}
+  end
+
+  standup_data[user_id] ||= []
+  standup_data[user_id] << { date: Time.now.utc.to_s, answers: answers }
+
+  File.write(standup_data_file, JSON.dump(standup_data))
+end
+
+# ... (previous code)
+
+# Post the summary of standup updates in the #standup-summary channel
+summary = answers.map { |a| format_summary_message(user_id, a[:question], a[:answer]) }.join
+client.chat_postMessage(channel: '#standup-summary', text: "Standup Summary for <@#{user_id}>:\n\n#{summary}")
+
+# Store standup data
+store_standup_data(user_id, answers)
+```
+
+3. Create a simple web dashboard to display standup data using Sinatra and Chartkick. Add the following code at the end of your `standup_bot.rb` script:
+
+```ruby
+# ... (previous code)
+
+# Web dashboard
+get '/' do
+  standup_data_file = 'public/standup_data.json'
+  standup_data = if File.exist?(standup_data_file)
+    JSON.parse(File.read(standup_data_file))
+  else
+    {}
+  end
+
+  erb :index, locals: { standup_data: standup_data }
+end
+
+__END__
+
+@@ layout
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Standup Dashboard</title>
+  <%= Chartkick.stylesheets %>
+</head>
+<body>
+  <%= yield %>
+  <%= Chartkick.javascripts %>
+</body>
+</html>
+
+@@ index
+<h1>Standup Dashboard</h1>
+
+<% standup_data.each do |user_id, user_standup_data| %>
+  <h2>Standup Data for User <%= user_id %></h2>
+  <table>
+    <tr>
+      <th>Date</th>
+      <% user_standup_data.first['answers'].each do |answer| %>
+        <th><%= answer['question'] %></th>
+      <% end %>
+    </tr>
+    <% user_standup_data.each do |standup| %>
+      <tr>
+        <td><%= standup['date'] %></td>
+        <% standup['answers'].each do |answer| %>
+          <td><%= answer['answer'] %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+```
+
+4. To run the web dashboard locally, you need to modify the `standup_bot.rb` script to only run the standup bot when it's not running as a web server. Wrap the standup bot code in a conditional block:
+
+```ruby
+if __FILE__ == $0
+  # ... (existing standup bot code)
+end
+```
+
+5. Install the necessary gems by running `bundle install` in your project directory. If you don't have a Gemfile, create one with the following content:
+
+```ruby
+source 'https://rubygems.org'
+
+gem 'slack-ruby-client'
+gem 'jira-ruby'
+gem 'sinatra'
+gem 'chartkick'
+gem 'sinatra-chartkick'
+```
+
+Then, run `bundle install`.
+
+6. Start the web dashboard by running `ruby standup_bot.rb` in your project directory.
+7. Access the dashboard by navigating to `http://localhost:4567` in your web browser.
+
+Now, you have a simple web dashboard that displays the standup data. You can further enhance the dashboard by using Chartkick to generate visualizations based on the standup data. For example, you can create charts to display the number of tasks completed over time, the average time spent on tasks, or the distribution of tasks among team members.
+
+For more information on how to use Chartkick, please refer to the official documentation: <https://chartkick.com>
+
+### **Mood check**
+
+To add a mood check question and parse the responses, follow these steps:
+
+1. Add a mood check question to the `questions.json` file:
+
+```json
+[
+  "What did you accomplish yesterday?",
+  "What are you working on today?",
+  "Are there any blockers?",
+  "On a scale of 1 to 5, how would you rate your mood today?"
+]
+```
+
+2. Update the `store_standup_data` function in the `standup_bot.rb` script to also store the mood value:
+
+```ruby
+def store_standup_data(user_id, answers)
+  standup_data_file = 'public/standup_data.json'
+  
+  standup_data = if File.exist?(standup_data_file)
+    JSON.parse(File.read(standup_data_file))
+  else
+    {}
+  end
+
+  mood = answers.find { |a| a[:question].include?('On a scale of 1 to 5') }[:answer].to_i
+  standup_data[user_id] ||= []
+  standup_data[user_id] << { date: Time.now.utc.to_s, answers: answers, mood: mood }
+
+  File.write(standup_data_file, JSON.dump(standup_data))
+end
+```
+
+3. Update the web dashboard to display a mood chart. Add the following code to the `@@ index` section in the `standup_bot.rb` script:
+
+```ruby
+<% mood_data = user_standup_data.map { |s| [s['date'], s['mood']] } %>
+<%= line_chart mood_data, min: 1, max: 5, height: "400px", xtitle: "Date", ytitle: "Mood (1-5)", library: { curve: false } %>
+```
+
+Now, the standup bot will ask a mood check question, store the mood data, and display a mood chart on the web dashboard. The chart will show the team members' mood over time, providing insights into their well-being and overall satisfaction with their work.
+
+### **Adaptive questions**
+
+Once the OpenAI API is available for integration, you can use it to implement adaptive questioning in your standup bot. Here's a high-level overview of how you can add this feature:
+
+1. Obtain an API key for the OpenAI API and set it up in your project.
+2. Create a new function in your `standup_bot.rb` script to generate adaptive questions using the OpenAI API. For example:
+
+```ruby
+def generate_adaptive_questions(user_id)
+  # Make a request to the OpenAI API to generate adaptive questions
+  # based on the user's standup history or other relevant data.
+
+  # The actual API call will depend on the OpenAI API documentation and
+  # endpoint structure. Replace the following line with the appropriate
+  # API call.
+  api_response = openai_api_call(user_id)
+
+  # Parse the API response to extract the generated questions.
+  # This will depend on the structure of the API response.
+  questions = parse_questions_from_api_response(api_response)
+
+  questions
+end
+```
+
+3. Update your `standup_bot.rb` script to use the `generate_adaptive_questions` function to obtain the questions for each user instead of loading them from the `questions.json` file. Replace the following line:
+
+```ruby
+questions = JSON.parse(File.read('questions.json'))
+```
+
+with:
+
+```ruby
+questions = generate_adaptive_questions(user_id)
+```
+
+4. Test the standup bot to ensure that the adaptive questions are being generated correctly and used in the standup process.
+
+By using the OpenAI API to generate adaptive questions, your standup bot can tailor the questions to each team member's specific context and work progress. This can help to make the standup process more engaging and effective in capturing valuable insights about your team's work.
