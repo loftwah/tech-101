@@ -18,6 +18,5 @@ Ruby also provides a number of tools and services for building, testing, and dep
 
 * **Bundler:** Bundler is a tool for managing gem dependencies in Ruby projects. It provides a way to specify and install the required gems for a project.
 * **RSpec:** RSpec is a testing framework for Ruby that allows you to write tests for your Ruby code. It provides a way to test individual components of your code and ensure that they are working as expected.
-* **Heroku:** Heroku (no longer free) is a cloud platform for deploying and managing Ruby applications. It provides a way to quickly deploy and scale applications, as well as tools for monitoring and managing them.
 
 Overall, Ruby is a powerful and flexible programming language that is widely used in web development and other domains. While it may take some time to get familiar with Ruby and its concepts, it is a valuable skill that can help you build applications quickly and efficiently.
