@@ -1,6 +1,6 @@
 # Welcome to Tech 101
 
-We're excited to have you onboard and are looking forward to working with you. As a member of our team, you'll be working with some of the latest and greatest technologies, including AWS, Docker, Linux, Rails, Ruby, and Terraform. This guide will give you a brief introduction to these technologies, as well as some guides on how to get up and running with some of the tools we use on a daily basis.
+Hi, we're excited to have you onboard and are looking forward to working with you. As a member of our team, you'll be working with some of the latest and greatest technologies, including AWS, Docker, Linux, Rails, Ruby, and Terraform. This guide will give you a brief introduction to these technologies, as well as some guides on how to get up and running with some of the tools we use on a daily basis.
 
 ![Tech 101](https://user-images.githubusercontent.com/19922556/219303685-dcc42f83-2e25-4c1b-9e5b-d57922570149.jpg)
 
