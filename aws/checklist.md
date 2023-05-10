@@ -2,7 +2,7 @@
 
 Some AWS you should be able to do.
 
-| **AWS Fundamentals**                |                                                                                                |
+| **AWS Fundamentals**                |      Exercises                                                                                 |
 |                                     | [ ] Sign up for an AWS account and explore the AWS Management Console.                         |
 |                                     | [ ] Understand AWS global infrastructure, regions, and availability zones.                     |
 |                                     | [ ] Learn about AWS pricing, cost management, and billing.                                    |
