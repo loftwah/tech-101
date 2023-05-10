@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+gem 'asciidoctor'
+gem 'reverse_markdown'
+gem 'kramdown'
+gem 'kramdown-parser-gfm'

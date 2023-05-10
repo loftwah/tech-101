@@ -1,0 +1,28 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    asciidoctor (2.0.18)
+    kramdown (2.4.0)
+      rexml
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
+    mini_portile2 (2.8.2)
+    nokogiri (1.14.3)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
+    racc (1.6.2)
+    reverse_markdown (2.1.1)
+      nokogiri
+    rexml (3.2.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  asciidoctor
+  kramdown
+  kramdown-parser-gfm
+  reverse_markdown
+
+BUNDLED WITH
+   2.1.4
