@@ -1,0 +1,59 @@
+= Ruby AWS and Database Templates
+
+This repository contains Ruby templates for working with various AWS services and databases. Each template follows a consistent style and includes verbose comments to help understand the structure and functionality of the code, making it easier for someone new to Ruby.
+
+== Prerequisites
+
+Before using these templates, make sure you have the following prerequisites installed:
+
+* Ruby (version 2.7 or higher)
+* Bundler (version 2.0 or higher)
+
+To install the necessary Ruby gems, run the following command in your terminal:
+
+`bundle install``
+
+This command will read the `Gemfile` in the repository and install the appropriate gems for each template.
+
+== Templates
+
+The following templates are available:
+
+1. `ec2_instance_manager.rb`: AWS EC2 Instance Management
+2. `lambda_function_manager.rb`: AWS Lambda Function Management
+3. `s3_bucket_manager.rb`: AWS S3 Bucket Management
+4. `postgres_manager.rb`: PostgreSQL Management with ActiveRecord
+5. `rails_cache_manager.rb`: Rails Cache Management with Elasticache
+
+Each template file contains a class with a `call` method that you can customize to perform specific actions related to the respective AWS service or database. The class also includes private helper methods to simplify working with the APIs and SDKs.
+
+== Usage
+
+To use these templates, follow the steps below:
+
+1. Clone the repository to your local machine.
+
+    ```bash
+    git clone https://github.comloftwah/tech-101.git
+    cd tech-101/ruby/templates
+    ```
+
+2. Install the required Ruby gems by running `bundle install` in your terminal.
+
+3. Set the required environment variables for each template (e.g., AWS keys, database credentials, etc.). You can either set them directly in your terminal session or add them to a `.env` file in the project root.
+
+    For example, to set environment variables for the `ec2_instance_manager.rb` template, you can create a `.env` file with the following content:
+
+    ```bash
+    AWS_REGION=ap-southeast-2
+    AWS_ACCESS_KEY_ID=your_access_key_id
+    AWS_SECRET_ACCESS_KEY=your_secret_access_key
+    ```
+
+4. Customize the `call` method in each template with the desired actions for the specific service or database. The templates include comments to help you understand the structure and functionality of the code. You can also refer to the official API and SDK documentation for additional information.
+
+5. Run the templates by executing `ruby <template_name>.rb` in your terminal.
+
+For example, to run the `ec2_instance_manager.rb` template, use the following command:
+
+`ruby ec2_instance_manager.rb`
