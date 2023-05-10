@@ -22,7 +22,7 @@ Some Docker exercises you should be able to do.
 |                                | [ ] Create a docker-compose.yml file to manage multi-container applications.                   |
 |                                | [ ] Use Docker Compose commands: up, down, ps, logs, and more.                                |
 | **Docker Swarm**               |                                                                                               |
-|                                | [ ] Initialize a Docker Swarm cluster.                                                        |
+|                                | [ ] Initialize a Docker Swarm cluster [dockerswarm.rocks](https://dockerswarm.rocks).                                                        |
 |                                | [ ] Deploy a service to a Docker Swarm cluster.                                               |
 |                                | [ ] Manage Docker Swarm services: scale, update, and remove.                                  |
 | **Docker Security**            |                                                                                               |
@@ -33,11 +33,11 @@ Some Docker exercises you should be able to do.
 |                                | [ ] Monitor Docker containers using built-in Docker stats.                                    |
 |                                | [ ] Integrate Docker with monitoring and logging tools like Prometheus and ELK Stack.         |
 | **Docker CI/CD**               |                                                                                               |
-|                                | [ ] Integrate Docker with a CI/CD pipeline (e.g., Jenkins, GitLab CI, or GitHub Actions).     |
+|                                | [ ] Integrate Docker with a CI/CD pipeline (e.g., GitHub Actions).     |
 |                                | [ ] Create a CI/CD pipeline that builds, tests, and deploys a Dockerized application.          |
 | **Docker Networking**          |                                                                                               |
 |                                | [ ] Understand Docker networking concepts: Bridge, Host, Overlay, and Macvlan.                |
 |                                | [ ] Configure custom Docker networks for container communication.                             |
 | **Docker in Production**       |                                                                                               |
 |                                | [ ] Understand container orchestration with Kubernetes or Amazon ECS.                         |
-|                                | [ ] Deploy a Dockerized application to a production environment (e.g., AWS, GCP, or Azure).    |
+|                                | [ ] Deploy a Dockerized application to a production environment (e.g., AWS).    |
