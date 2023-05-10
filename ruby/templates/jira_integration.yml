@@ -1,0 +1,36 @@
+name: Jira Integration
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - closed
+
+jobs:
+  jira_integration:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install
+
+    - name: Run Jira and GitHub Actions integration
+      run: ruby jira_github_actions_integration.rb
+      env:
+        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_PR_NUMBER: ${{ github.event.number }}
+        JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+        JIRA_URL: ${{ secrets.JIRA_URL }}
