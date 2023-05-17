@@ -112,6 +112,33 @@ Let's break down the output:
 
 This pattern continues as the script generates the pagination control for each page in the range.
 
+## Active Record
+
+With Active Record in a Rails application, this Pagination class can be used to create a custom pagination control in conjunction with data pulled from a database using Active Record's querying capabilities.
+
+For instance, consider you have a `Post` model and you want to display a list of posts with pagination. You could add a method to your controller to calculate the total number of pages based on the number of posts and the number of posts you want to display per page.
+
+Here's an example:
+
+```ruby
+class PostsController < ApplicationController
+  POSTS_PER_PAGE = 10
+
+  def index
+    @current_page = params[:page].to_i || 1
+    @total_pages = (Post.count.to_f / POSTS_PER_PAGE).ceil
+
+    @posts = Post.order(created_at: :desc).limit(POSTS_PER_PAGE).offset((@current_page - 1) * POSTS_PER_PAGE)
+  end
+end
+```
+
+In this controller, `@posts` would contain the posts for the current page, and `@current_page` and `@total_pages` would be used to generate the pagination control with the Pagination class.
+
+You would call the `Pagination.call` method with `@current_page` and `@total_pages` in your view or in a view helper as I mentioned before, and generate the HTML for the pagination control based on the array of page numbers and "..." strings that `Pagination.call` returns.
+
+Please keep in mind that there are also gems like `will_paginate` and `kaminari` that can handle pagination for you in Rails applications. These gems provide ready-to-use, customizable pagination controls and integrate directly with Active Record, automatically handling the calculation of the number of pages and the retrieval of the records for the current page.
+
 ## Wrapping Up
 
 That's about it for this quick tutorial. We hope it's been as fun for you to read as it was for us to write. If you've got any questions, don't hesitate to ask. Good onya, mate!
