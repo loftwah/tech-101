@@ -56,7 +56,7 @@ Then in your view, you could call this helper method to generate the pagination 
 
 ## Why Use This in Rails?
 
-Rails already has some great gems for pagination, like Kaminari and will\_paginate. But sometimes, you might need a custom solution - maybe you want to style your pagination control in a specific way, or maybe you need to handle pagination in a non-standard way.
+Rails already has some great gems for pagination, like [Kaminari](https://github.com/kaminari/kaminari) and [will_paginate](https://github.com/mislav/will_paginate). But sometimes, you might need a custom solution - maybe you want to style your pagination control in a specific way, or maybe you need to handle pagination in a non-standard way.
 
 In these cases, having a simple, clean Ruby class that you can easily customise can be a real lifesaver. It's also a good way to keep your code tidy and your logic easy to follow, which we all know is a fair dinkum good idea.
 
