@@ -137,6 +137,8 @@ In this controller, `@posts` would contain the posts for the current page, and `
 
 You would call the `Pagination.call` method with `@current_page` and `@total_pages` in your view or in a view helper as I mentioned before, and generate the HTML for the pagination control based on the array of page numbers and "..." strings that `Pagination.call` returns.
 
+> Note: `<%= paginate(@current_page, @total_pages) %>`
+
 Please keep in mind that there are also gems like `will_paginate` and `kaminari` that can handle pagination for you in Rails applications. These gems provide ready-to-use, customizable pagination controls and integrate directly with Active Record, automatically handling the calculation of the number of pages and the retrieval of the records for the current page.
 
 ## Wrapping Up
