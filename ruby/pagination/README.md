@@ -137,7 +137,41 @@ In this controller, `@posts` would contain the posts for the current page, and `
 
 You would call the `Pagination.call` method with `@current_page` and `@total_pages` in your view or in a view helper as I mentioned before, and generate the HTML for the pagination control based on the array of page numbers and "..." strings that `Pagination.call` returns.
 
-> Note: `<%= paginate(@current_page, @total_pages) %>`
+In a Rails view, you can use the `Pagination.call` method in a helper method called `paginate`, which you can then use in your views.
+
+The helper method `paginate` would look something like this:
+
+```ruby
+def paginate(current_page, total_pages)
+  pages = Pagination.call(current_page, total_pages)
+  
+  # Generate HTML for the pagination control using the pages array
+  # This is a simple example and might not suit your exact needs
+  html = '<div class="pagination">'
+  pages.each do |page|
+    if page == '...'
+      html += '<span class="dots">...</span>'
+    else
+      html += "<a href=\"?page=#{page}\" class=\"page#{' current' if page == current_page}\">#{page}</a>"
+    end
+  end
+  html += '</div>'
+
+  html.html_safe
+end
+```
+
+And in your view, you would use this helper method like so:
+
+```erb
+<%= paginate(@current_page, @total_pages) %>
+```
+
+This will generate HTML for the pagination control. The `html_safe` method is used to mark the string as safe for Rails, so it doesn't escape the HTML tags. The `paginate` method creates a string of HTML with links to each page, and "..." for gaps.
+
+This is a very simplified example and may not suit your exact needs. For example, you might want to use Rails' link\_to helper instead of manually creating `<a>` tags. The generated HTML also has no styling - you would typically add CSS to make the pagination control look good.
+
+Keep in mind that the array returned by `Pagination.call` could contain numbers and the string "...". This is so you can create links for individual pages and display "..." where there are gaps in the sequence of pages.
 
 Please keep in mind that there are also gems like `will_paginate` and `kaminari` that can handle pagination for you in Rails applications. These gems provide ready-to-use, customizable pagination controls and integrate directly with Active Record, automatically handling the calculation of the number of pages and the retrieval of the records for the current page.
 
