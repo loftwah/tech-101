@@ -56,11 +56,61 @@ Then in your view, you could call this helper method to generate the pagination 
 
 ## Why Use This in Rails?
 
-Rails already has some great gems for pagination, like [Kaminari](https://github.com/kaminari/kaminari) and [will_paginate](https://github.com/mislav/will_paginate). But sometimes, you might need a custom solution - maybe you want to style your pagination control in a specific way, or maybe you need to handle pagination in a non-standard way.
+Rails has some top-notch gems (Ruby code packages) for pagination, like [Kaminari](https://github.com/kaminari/kaminari) and [will_paginate](https://github.com/mislav/will_paginate). But sometimes, you might need something a bit custom. Maybe you want your pagination to look a certain way, or maybe you've got a special case that the gems can't handle.
 
-In these cases, having a simple, clean Ruby class that you can easily customise can be a real lifesaver. It's also a good way to keep your code tidy and your logic easy to follow, which we all know is a fair dinkum good idea.
+That's where our Pagination class comes in. It's a simple bit of Ruby that you can tweak to get just what you need. It also helps keep your code neat and your logic easy to understand. And if there's one thing we know, it's that clean code is happy code.
 
-Remember, the Pagination class we've provided here is quite basic. It might not handle all edge cases and it might not have all the features you need. But it's a good starting point and it's easy to modify to suit your needs.
+Now, our Pagination class is pretty basic. It might not cover all the weird cases, and it might not have all the features you're after. But it's a good place to start, and it's easy to change to fit your needs.
+
+## Output
+
+Here's what the output of the Pagination class looks like:
+
+```bash
+ ❯  ~/gits/tech-bootcamp/ruby/pagination   main±  ruby pagination.rb
+Selected page 1: [1, 2, 3, "...", 20]
+Selected page 2: [1, 2, 3, 4, "...", 20]
+Selected page 3: [1, 2, 3, 4, 5, "...", 20]
+Selected page 4: [1, 2, 3, 4, 5, 6, "...", 20]
+Selected page 5: [1, 2, 3, 4, 5, 6, 7, "...", 20]
+Selected page 6: [1, "...", 4, 5, 6, 7, 8, "...", 20]
+Selected page 7: [1, "...", 5, 6, 7, 8, 9, "...", 20]
+Selected page 8: [1, "...", 6, 7, 8, 9, 10, "...", 20]
+Selected page 9: [1, "...", 7, 8, 9, 10, 11, "...", 20]
+Selected page 10: [1, "...", 8, 9, 10, 11, 12, "...", 20]
+Selected page 11: [1, "...", 9, 10, 11, 12, 13, "...", 20]
+Selected page 12: [1, "...", 10, 11, 12, 13, 14, "...", 20]
+Selected page 13: [1, "...", 11, 12, 13, 14, 15, "...", 20]
+Selected page 14: [1, "...", 12, 13, 14, 15, 16, "...", 20]
+Selected page 15: [1, "...", 13, 14, 15, 16, 17, "...", 20]
+Selected page 16: [1, "...", 14, 15, 16, 17, 18, 19, 20]
+Selected page 17: [1, "...", 15, 16, 17, 18, 19, 20]
+Selected page 18: [1, "...", 16, 17, 18, 19, 20]
+Selected page 19: [1, "...", 17, 18, 19, 20]
+Selected page 20: [1, "...", 18, 19, 20]
+```
+
+What you're seeing is the output of the `pagination.rb` script when it's run. The script is generating a set of page numbers for a pagination control, for each page in a range from 1 to 20. The pagination control is designed to always show the first page, the last page, the current page, and two pages on either side of the current page (that's the default 'delta' of 2).
+
+Let's break down the output:
+
+1. `Selected page 1: [1, 2, 3, "...", 20]`
+
+   Here, the current page is 1. So, the script shows page 1, then the next two pages (2 and 3), then a '...' to represent the pages it's skipping over, and finally the last page, 20.
+
+2. `Selected page 2: [1, 2, 3, 4, "...", 20]`
+
+   Now, the current page is 2. The script shows the first page, the current page (2), and the next two pages (3 and 4), then the '...' and the last page, 20.
+
+3. `Selected page 5: [1, 2, 3, 4, 5, 6, 7, "...", 20]`
+
+   Here, the current page is 5. The script shows the first page, the current page (5), and the next two pages (6 and 7). However, because 5 is only two pages away from the first page, the script also shows the pages leading up to the current page (2, 3, and 4).
+
+4. `Selected page 6: [1, "...", 4, 5, 6, 7, 8, "...", 20]`
+
+   Now things get a bit more interesting. The current page is 6, so the script shows the first page, the current page, and the next two pages (7 and 8). It also shows the two pages before the current page (4 and 5). Because there's now a gap between the first page and the pages around the current page, the script includes a '...' after the first page.
+
+This pattern continues as the script generates the pagination control for each page in the range.
 
 ## Wrapping Up
 
