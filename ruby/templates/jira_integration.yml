@@ -1,36 +1,33 @@
-name: Jira Integration
+name: Jira Sync
 
 on:
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - closed
+    types: [labeled]
 
 jobs:
-  jira_integration:
+  label_sync:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v2
-
+    - name: Check Labels
+      run: echo "Labels ${{ toJSON(github.event.pull_request.labels) }}"
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.7
-
+        ruby-version: 3.0
     - name: Install dependencies
       run: |
-        gem install bundler
-        bundle install
-
-    - name: Run Jira and GitHub Actions integration
-      run: ruby jira_github_actions_integration.rb
+        gem install octokit --version '~> 4.0'
+        gem install jira-ruby --version '~> 2.0'
+        gem install dotenv --version '~> 2.7'
+    - name: Run script
       env:
-        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
-        GITHUB_REPOSITORY: ${{ github.repository }}
-        GITHUB_PR_NUMBER: ${{ github.event.number }}
+        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
         JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
         JIRA_URL: ${{ secrets.JIRA_URL }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }}
+        GITHUB_PR_LABELS: ${{ toJSON(github.event.pull_request.labels) }}
+      run: ruby actions/jira_github_actions_integration.rb

@@ -1,49 +1,55 @@
-# frozen_string_literal: true
+require 'dotenv'
+Dotenv.load
 
+require 'logger'
 require 'octokit'
 require 'jira-ruby'
-require 'dotenv'
+require_relative 'jira_issue_lookup'
 
-class JiraGitHubActionsIntegration
+class JiraGitHubIntegration
+  include JiraIssueLookup
+
   def self.call
     new.call
   end
 
   def call
-    # Add your custom logic here
+    return unless valid_jira_and_issue?
 
-    # Example: Update Jira issue status based on the GitHub PR state
-    # update_issue_status
+    handle_actions
+  rescue Octokit::Error, JIRA::HTTPError => e
+    logger.error "An error occurred: #{e.message}"
   end
 
   private
 
-  # Add your custom methods here
+  def valid_jira_and_issue?
+    jira_ticket_id && jira_issue
+  end
+
+  def handle_actions
+    # your action here
+  end
+
+  def logger
+    @logger ||= Logger.new($stdout)
+  end
 
   def pr
     @pr ||= github_client.pull_request(ENV.fetch('GITHUB_REPOSITORY', nil), ENV['GITHUB_PR_NUMBER'].to_i)
   end
 
-  def jira_ticket_id
-    @jira_ticket_id ||= pr.title.match(/(?<=\b)[A-Za-z]+-\d+/)
-  end
-
   def jira_issue
-    @jira_issue ||= find_jira_issue_with_retries
+    @jira_issue ||= find_jira_issue(jira_ticket_id)
   end
 
-  def find_jira_issue_with_retries
-    retry_count = 0
-    max_retries = 3
-    begin
-      jira_client.Issue.find(jira_ticket_id[0])
-    rescue JIRA::HTTPError => e
-      raise e unless retry_count < max_retries
+  def jira_issue_labels
+    @jira_issue_labels ||= jira_issue.labels
+  end
 
-      retry_count += 1
-      sleep 5
-      retry
-    end
+  def gh_labels_from_env
+    raw_labels = JSON.parse(ENV.fetch('GITHUB_PR_LABELS', nil))
+    raw_labels.map { |label| label['name'] }
   end
 
   def github_client
@@ -66,8 +72,5 @@ class JiraGitHubActionsIntegration
   end
 end
 
-# Load environment variables from .env file
-Dotenv.load
-
-# Run the Jira and GitHub Actions Integration
-JiraGitHubActionsIntegration.call
+# Run the integration
+JiraGitHubIntegration.call
