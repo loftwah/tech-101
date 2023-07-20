@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #wheel {
+            width: 100vmin;
+            height: 100vmin;
+            position: relative;
+            margin: auto;
+            transition: transform 5s; /* increase spin duration */
+        }
+
+        #spinButton, #words {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+        }
+        
+        #words {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="words" placeholder="Enter words here, one per line."></textarea>
+    
+    <div id="spin">
+        <button id="spinButton">SPIN</button>
+    </div>
+
+    <svg viewBox="0 0 500 500" id="wheel">
+        <g id="wheel-elements">
+            <!-- Elements of the wheel -->
+        </g>
+    </svg>
+
+    <script>
+        window.onload = function() {
+            var rotation = 0;
+            var wheel = document.getElementById('wheel');
+            var wheelElements = document.getElementById('wheel-elements');
+
+            // Function to generate random color
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            // Initialize the wheel with one default sector
+            var defaultSector = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            defaultSector.setAttribute('d', 'M 250 250 L 450 250 A 200 200 0 0 1 50 250 Z');
+            defaultSector.setAttribute('fill', getRandomColor());
+            wheelElements.appendChild(defaultSector);
+
+            // Spin button click handler
+            document.getElementById('spinButton').onclick = function() {
+                // Get words from textarea
+                var words = document.getElementById('words').value.split('\n').filter(word => word.trim() !== '');
+                var numberOfSectors = words.length > 0 ? words.length : 1;
+
+                // Clear previous wheel elements
+                wheelElements.innerHTML = '';
+
+                // Create wheel sectors and text elements
+                for (var i = 0; i < numberOfSectors; i++) {
+                    var newSector = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    var x = 250 + 200 * Math.cos(2 * Math.PI * i / numberOfSectors);
+                    var y = 250 + 200 * Math.sin(2 * Math.PI * i / numberOfSectors);
+                    newSector.setAttribute('d', 'M 250 250 L ' + x + ' ' + y + ' A 200 200 0 0 1 ' + 
+                        (250 + 200 * Math.cos(2 * Math.PI * (i + 1) / numberOfSectors)) + ' ' + 
+                        (250 + 200 * Math.sin(2 * Math.PI * (i + 1) / numberOfSectors)) + ' Z');
+                    newSector.setAttribute('fill', getRandomColor());
+                    wheelElements.appendChild(newSector);
+
+                    // Create text
+                    var newText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    newText.setAttribute('x', 250);
+                    newText.setAttribute('y', 120); // Slightly adjust y to center the text better
+                    newText.setAttribute('text-anchor', 'middle');
+                    newText.setAttribute('transform', 'rotate(' + ((i + 0.5) * 360 / numberOfSectors) + ' 250 250)');
+                    newText.textContent = words[i] || 'default';
+                    wheelElements.appendChild(newText);
+                }
+
+                // Spin the wheel
+                rotation = (rotation + Math.floor(Math.random() * 10 * numberOfSectors)) % (10 * numberOfSectors);  // Spin multiple times
+                wheel.style.transform = 'rotate(' + (rotation * 360 / numberOfSectors / 10) + 'deg)';
+            };
+        };
+    </script>
+</body>
+</html>

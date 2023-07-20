@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Press Start 2P", cursive;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+        height: 100vh;
+        padding: 20px;
+        background-color: #85c1e9; /* Changed to a light blue */
+        color: #000; /* Text color is black */
+      }
+      #header {
+        grid-column: 1 / span 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #f1948a; /* Header has a light red background */
+      }
+      #sidebar {
+        overflow: auto;
+        padding: 20px 15px 15px;
+        background-color: #f7dc6f; /* Sidebar has a light yellow background */
+      }
+      #content {
+        overflow: auto;
+        padding: 20px 15px 15px;
+        background-color: #abebc6; /* Content area has a light green background */
+      }
+      .nes-btn {
+        margin-bottom: 15px;
+        background-color: #85c1e9; /* Buttons are the same color as the body background */
+      }
+      .title {
+        margin-bottom: 20px;
+        color: #154360; /* Title text is a dark blue */
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header" class="nes-container is-rounded">
+      <h1 class="title">Loftwah's Custom Dashboard</h1>
+      <img src="https://github.com/loftwah.png" class="nes-avatar is-large" />
+    </header>
+    <aside id="sidebar" class="nes-container with-title is-rounded">
+      <p class="title">Navigation</p>
+      <button class="nes-btn is-full-width">GitHub</button>
+      <button class="nes-btn is-full-width">Twitter</button>
+      <button class="nes-btn is-full-width">GMail</button>
+      <button class="nes-btn is-full-width">ChatGPT</button>
+      <button class="nes-btn is-full-width">LinkFree</button>
+      <button class="nes-btn is-full-width">Jira</button>
+      <button class="nes-btn is-full-width">Users</button>
+      <button class="nes-btn is-full-width">Tools</button>
+      <button class="nes-btn is-full-width">Settings</button>
+    </aside>
+    <main id="content" class="nes-container with-title is-rounded">
+      <p class="title">Good Afternoon, Loftwah! How are you going today?</p>
+      <!-- main content goes here -->
+      <div class="nes-container is-rounded">
+        <p class="title">At a Glance</p>
+        <div class="feed">
+          <div class="nes-container is-rounded">
+            <p><strong>Social Media:</strong></p>
+            <p>John Doe liked your photo</p>
+            <p>Jane Doe commented: "Great post!"</p>
+            <p>Mike liked your tweet</p>
+          </div>
+          <div class="nes-container is-rounded">
+            <p><strong>Emails:</strong></p>
+            <p>New email from John Doe: "Meeting Tomorrow"</p>
+            <p>New email from Jane Doe: "Project Update"</p>
+          </div>
+          <div class="nes-container is-rounded">
+            <p><strong>Slack:</strong></p>
+            <p>John Doe: "Can you review this document?"</p>
+            <p>Jane Doe: "Meeting has been rescheduled."</p>
+          </div>
+          <div class="nes-container is-rounded">
+            <p><strong>GitHub:</strong></p>
+            <p>New issue: "Bug in login screen"</p>
+            <p>New PR: "Added new feature"</p>
+          </div>
+          <div class="nes-container is-rounded">
+            <p><strong>RSS:</strong></p>
+            <p>New post: "5 Tips for Better Coding"</p>
+            <p>New post: "Understanding AI"</p>
+          </div>
+        </div>
+      </div>
+      <div class="nes-container is-rounded">
+        <p class="title">Activity</p>
+        <div class="activity">
+          <div class="nes-container is-rounded">
+            <p><strong>Server Uptime:</strong></p>
+            <p>Website A: 99.9%</p>
+            <p>Website B: 100%</p>
+            <p>Website C: 98.6%</p>
+          </div>
+          <div class="nes-container is-rounded">
+            <p><strong>AWS Resources:</strong></p>
+            <p>EC2 Instances Running: 4</p>
+            <p>S3 Buckets: 3</p>
+            <p>RDS Instances: 2</p>
+            <p>Active Lambda Functions: 7</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
