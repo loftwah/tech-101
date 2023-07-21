@@ -8,7 +8,7 @@ Inspired by [Kubernetes the Hard Way](https://github.com/kelseyhightower/kuberne
 
 This guide will focus on setting up a basic Kubernetes cluster from scratch. Please ensure that you are familiar with AWS EC2 instances, VPC, IAM, and networking as well as Linux commands and Kubernetes concepts.
 
-To get started, we will be using 3 instances (for simplicity's sake) - 1 master and 2 nodes, but a production-ready setup would require at least 3 masters for high availability. I'll be using Ubuntu 18.04 for the instances.
+To get started, we will be using 3 instances (for simplicity's sake) - 1 master and 2 nodes, but a production-ready setup would require at least 3 masters for high availability. I'll be using Ubuntu 22.04 for the instances.
 
 **1. Setting up AWS instances**
 
