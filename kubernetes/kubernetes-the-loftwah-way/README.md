@@ -185,7 +185,7 @@ sudo apt-get update
 sudo apt-get upgrade -y
 ```
 
-**Step 2: Install Containerd**
+**Step 2: Install containerd**
 
 ```bash
 # Install necessary packages
@@ -232,9 +232,9 @@ sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubernetes-cni
 ```
 
-**Step 5: Configure kubelet to use Containerd**
+**Step 5: Configure kubelet to use containerd**
 
-You will need to tell kubelet to use Containerd as its container runtime. Edit the kubelet configuration file:
+You will need to tell kubelet to use containerd as its container runtime. Edit the kubelet configuration file:
 
 ```bash
 sudo nano /etc/default/kubelet
@@ -256,7 +256,7 @@ Restart kubelet to pick up the changes in its configuration.
 sudo systemctl restart kubelet
 ```
 
-With these steps, Containerd and the Kubernetes components should now be installed and configured correctly. Now you can move on to setting up your Kubernetes cluster.
+With these steps, containerd and the Kubernetes components should now be installed and configured correctly. Now you can move on to setting up your Kubernetes cluster.
 
 **Step 3: Install kubelet, kubeadm, and kubernetes-cni**
 
