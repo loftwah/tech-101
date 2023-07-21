@@ -683,3 +683,61 @@ You can quickly switch context or namespaces by using the command:
 You can then select the context or namespace from the list, and K9s will switch to it.
 
 Remember, K9s can be a powerful tool for navigating and managing your Kubernetes clusters, but it is still a supplement to `kubectl` and other Kubernetes management tools, not a replacement. Always make sure to understand what's happening behind the scenes when using k9s or similar tools.
+
+## AWS EKS
+
+Amazon EKS (Elastic Kubernetes Service) is a managed service that makes it easy to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or worker nodes.
+
+## Setting Up an AWS EKS Cluster
+
+Before you start, make sure you have the AWS CLI and `eksctl` installed and configured.
+
+1. **Install and Configure AWS CLI**: The AWS Command Line Interface (CLI) is a unified tool to manage your AWS services. You can control multiple AWS services from the command line and automate them through scripts.
+
+   To install the AWS CLI, follow the instructions in the [official documentation](https://aws.amazon.com/cli/).
+
+   Once the AWS CLI is installed, you can configure it by running `aws configure` and entering your access key, secret access key, region, and output format when prompted.
+
+2. **Install eksctl**: `eksctl` is a simple CLI tool for creating and managing clusters on EKS. It was created by Weaveworks and is officially supported by AWS.
+
+   To install `eksctl`, follow the instructions in the [official documentation](https://eksctl.io/introduction/#installation).
+
+3. **Create EKS Cluster**: Once you've installed `eksctl`, creating a cluster is as easy as running a single command. Here's an example:
+
+   ```bash
+   eksctl create cluster \
+   --name my-cluster \
+   --version 1.21 \
+   --region ap-southeast-2 \
+   --nodegroup-name standard-workers \
+   --node-type t3.medium \
+   --nodes 3
+   ```
+
+   This command creates a cluster named "my-cluster" with three t3.medium worker nodes. You can adjust these settings to fit your requirements.
+
+## Managing Your EKS Cluster
+
+1. **Managing Nodes**: You can scale your node group up or down by using the `eksctl scale nodegroup` command. For example, you can increase the number of nodes in your node group to 5 with the following command:
+
+   ```bash
+   eksctl scale nodegroup --cluster=my-cluster --nodes=5 standard-workers
+   ```
+
+   You can also create, delete, and manage node groups with `eksctl`.
+
+2. **Upgrading Your Cluster**: AWS regularly updates EKS to support newer versions of Kubernetes. To upgrade your cluster to a newer Kubernetes version, you can use the `eksctl upgrade cluster` command.
+
+3. **Deploying Applications**: To deploy applications on your EKS cluster, you can use `kubectl`, the Kubernetes command-line tool.
+
+   For example, if you have a Kubernetes deployment file named `app.yaml`, you can deploy it with the following command:
+
+   ```bash
+   kubectl apply -f app.yaml
+   ```
+
+   This command creates the resources defined in the `app.yaml` file. These resources could be deployments, services, and more.
+
+Remember that when using managed services like EKS, AWS takes care of many administrative tasks. This includes updating and scaling the Kubernetes control plane, replacing unhealthy nodes, and patching the underlying EC2 instances.
+
+Lastly, it's worth mentioning that managing a Kubernetes cluster includes many tasks that aren't specific to EKS. For example, you'll need to manage namespaces, monitor your applications, manage your application deployments, handle storage, and more. These tasks are generally the same across all Kubernetes environments, whether you're using EKS, GKE, AKS, or running Kubernetes on-premises.
