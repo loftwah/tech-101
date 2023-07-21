@@ -51,8 +51,8 @@ graph TB
     ec2b[EC2 Instance B: 10.0.1.10]
     ec2c[EC2 Instance C: 10.0.2.10]
     master[Master Node: API Server, etcd, Controller Manager, Scheduler]
-    worker1[Worker Node: Kubelet, Docker, Pods]
-    worker2[Worker Node: Kubelet, Docker, Pods]
+    worker1[Worker Node: Kubelet, containerd, Pods]
+    worker2[Worker Node: Kubelet, containerd, Pods]
     podnet[Pod Network: 10.244.0.0/16]
     internet --> ig
     ig --> vpc
