@@ -114,6 +114,46 @@ Remember, only the instance in a subnet with a route to an Internet Gateway will
 
 c) Note down the private IP addresses of the instances, you'll need them later.
 
+When you create a subnet within a VPC in AWS, the subnet does not automatically have a route to the internet. That is, instances launched in that subnet won't be able to connect to the internet and the internet can't connect to those instances. In order for instances within a subnet to be able to reach the internet, you need to set up an Internet Gateway and add a route from the subnet to the Internet Gateway. This gives the subnet "Internet Access".
+
+Here are the steps to do this:
+
+**Step 1: Create an Internet Gateway**
+
+1. Open the Amazon VPC console at <https://console.aws.amazon.com/vpc/>.
+2. In the navigation pane, choose "Internet Gateways".
+3. Choose "Create Internet Gateway".
+4. You can provide a name for your Internet Gateway (optional).
+5. Choose "Create".
+
+**Step 2: Attach the Internet Gateway to your VPC**
+
+1. Select the Internet Gateway you just created.
+2. Choose "Actions", then "Attach to VPC".
+3. In the dialog box, select your VPC from the list, then choose "Attach".
+
+**Step 3: Update the Main Route Table for your VPC**
+
+By default, each VPC uses a main route table, and this route table will be used by all subnets that do not have their own custom route table. In this step, you'll add a route to the main route table that points all traffic (0.0.0.0/0) to the Internet Gateway.
+
+1. In the VPC Dashboard, choose "Route Tables".
+2. Select the main route table for your VPC. It's listed as "Yes" in the "Main" column.
+3. In the details pane, on the "Routes" tab, choose "Edit routes".
+4. Choose "Add Route".
+5. In the "Destination" box, enter `0.0.0.0/0`.
+6. In the "Target" box, select "Internet Gateway", then select the ID of your Internet Gateway.
+7. Choose "Save routes".
+
+Now, all subnets that use the main route table will have access to the internet via the Internet Gateway. If a subnet has its own route table, you'll need to add the route to the Internet Gateway directly to that subnet's route table.
+
+**Step 4: Ensure Instances Can Reach the Internet**
+
+Instances will need a public IP address to communicate with the internet. When launching an instance, you can enable the option "Auto-assign Public IP" to have AWS automatically assign a public IP address to the instance. If an instance doesn't have a public IP address, it can still communicate with the internet if it's in a subnet with a NAT gateway, but it can't be reached from the internet.
+
+The security group associated with the instance must also allow relevant inbound and outbound traffic. For outbound traffic, most security groups allow all outbound traffic by default. For inbound traffic, you need to add rules that allow specific traffic to reach your instance.
+
+With these steps, your instances in your VPC should be able to communicate with the internet.
+
 **2. Installing dependencies**
 
 SSH into each instance and install the following:
