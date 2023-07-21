@@ -53,6 +53,7 @@ graph TB
     master[Master Node: API Server, etcd, Controller Manager, Scheduler]
     worker1[Worker Node: Kubelet, Docker, Pods]
     worker2[Worker Node: Kubelet, Docker, Pods]
+    podnet[Pod Network: 10.244.0.0/16]
     internet --> ig
     ig --> vpc
     vpc --> subnet1
@@ -67,6 +68,9 @@ graph TB
     ec2a --> master
     ec2b --> worker1
     ec2c --> worker2
+    master --> podnet
+    worker1 --> podnet
+    worker2 --> podnet
 ```
 
 **Step 3: Modify Auto-Assign IP Settings for Subnets (Optional)**
