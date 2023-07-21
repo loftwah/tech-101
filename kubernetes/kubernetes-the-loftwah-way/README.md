@@ -14,7 +14,67 @@ To get started, we will be using 3 instances (for simplicity's sake) - 1 master 
 
 a) Create a new VPC and create three subnets.
 
-b) Launch three EC2 instances, choose Ubuntu Server 18.04 LTS (HVM), SSD Volume Type. Remember to choose the VPC and subnet you created. Open ports 22 (SSH), 6443 (Kubernetes API server), 2379-2380 (etcd server client API), 10250 (Kubelet API), 10251 (kube-scheduler), 10252 (kube-controller-manager) in the security group.
+**Step 1: Create a VPC**
+
+1. Open the Amazon VPC console at <https://console.aws.amazon.com/vpc/>.
+2. In the navigation pane, choose "Your VPCs".
+3. Choose "Create VPC".
+4. In the "Name tag" field, you can enter the name for your VPC.
+5. In the "IPv4 CIDR block" field, you need to specify the IP address range for your VPC. The IP address range can be up to /16 in size (for example, 10.0.0.0/16). Note: This is a critical decision that cannot be changed easily later.
+6. You can leave the "IPv6 CIDR block", "Tenancy" (default is fine unless you have specific needs) and "Description" fields at their default settings.
+7. Choose "Create".
+
+**Step 2: Create Subnets**
+
+You will generally create at least one subnet in each Availability Zone for redundancy, but for this example we'll just create three subnets within one Availability Zone.
+
+1. In the VPC Dashboard, choose "Subnets".
+2. Choose "Create subnet".
+3. In the "Name tag" field, you can enter a name for your subnet.
+4. In the "VPC" field, select the VPC you just created.
+5. In the "Availability Zone" field, you can select an Availability Zone or leave it as "No preference".
+6. In the "IPv4 CIDR block" field, specify a subset of the IP address range of your VPC. For example, if your VPC has the range 10.0.0.0/16, you could specify 10.0.0.0/24 for the first subnet, 10.0.1.0/24 for the second subnet, and 10.0.2.0/24 for the third subnet. This would give each subnet 256 addresses (though some are reserved by AWS and not usable).
+7. Choose "Create subnet".
+8. Repeat these steps to create the second and third subnets, making sure to use a different CIDR block for each.
+
+**Step 3: Modify Auto-Assign IP Settings for Subnets (Optional)**
+
+By default, instances that you launch into a VPC are not assigned a public IPv4 address unless you specified otherwise during launch, or you've modified the subnet's public IPv4 addressing behavior. If you want your instances to automatically have a public IP, do the following:
+
+1. Go to the "Subnets" page in the VPC Dashboard.
+2. Select a subnet, and choose "Actions", "Modify auto-assign IP settings".
+3. Check the "Auto-assign IPv4" box, then save.
+
+**Remember**: Always consider your security and network requirements before making changes. It's often recommended to only enable auto-assign public IPv4 on subnets in your public-facing subnet (i.e., a subnet that has a route to an Internet Gateway) and keep your backend subnets private (i.e., no direct route to the Internet).
+
+b) Launch three EC2 instances, choose Ubuntu Server 22.04 LTS (HVM), SSD Volume Type. Remember to choose the VPC and subnet you created. Open ports 22 (SSH), 6443 (Kubernetes API server), 2379-2380 (etcd server client API), 10250 (Kubelet API), 10251 (kube-scheduler), 10252 (kube-controller-manager) in the security group.
+
+1. Open the Amazon EC2 console at <https://console.aws.amazon.com/ec2/>.
+
+2. Click "Launch instance".
+
+3. In the "Choose an Amazon Machine Image (AMI)" step, select the "Ubuntu Server 22.04 LTS (HVM), SSD Volume Type" AMI. If it's not listed in the quick start list, search for it in the AWS Marketplace or Community AMIs.
+
+4. In the "Choose an Instance Type" step, select the instance type that meets your needs, and then click "Next: Configure Instance Details".
+
+5. In the "Configure Instance Details" step, select the VPC you created earlier from the "Network" dropdown. Then, for the "Subnet" dropdown, select the first subnet you created.
+
+6. Continue through the steps until you reach "Configure Security Group". Here, click "Create a new security group" and enter a name and description. Add rules to open the following ports:
+
+   * Type: SSH, Protocol: TCP, Port Range: 22, Source: Anywhere (or your IP for better security)
+   * Type: Custom TCP, Protocol: TCP, Port Range: 6443, Source: Anywhere
+   * Type: Custom TCP, Protocol: TCP, Port Range: 2379-2380, Source: Anywhere
+   * Type: Custom TCP, Protocol: TCP, Port Range: 10250, Source: Anywhere
+   * Type: Custom TCP, Protocol: TCP, Port Range: 10251, Source: Anywhere
+   * Type: Custom TCP, Protocol: TCP, Port Range: 10252, Source: Anywhere
+
+7. Click "Review and Launch", then "Launch".
+
+8. You'll be prompted to select an existing key pair or create a new one. If you don't have one, create a new one. Make sure you download and securely store the .pem file; you'll need it to SSH into your instances. Click "Launch Instances".
+
+9. Repeat the steps to launch two more instances, each in a different subnet.
+
+Remember, only the instance in a subnet with a route to an Internet Gateway will be directly accessible from the internet. Make sure you configure your network access according to your security needs.
 
 c) Note down the private IP addresses of the instances, you'll need them later.
 
@@ -29,6 +89,133 @@ SSH into each instance and install the following:
 * kubernetes-cni
 
 For Ubuntu, you can use apt-get. Remember to start and enable Docker and kubelet services.
+
+let's go through the steps needed to install Docker, kubelet, kubeadm, and kubernetes-cni on each of your instances.
+
+Firstly, you'll need to SSH into each instance. Assuming you have a key pair `mykey.pem` and the public IP of your instance is `my.instance.ip.address`, you would do:
+
+```bash
+chmod 400 mykey.pem
+ssh -i "mykey.pem" ubuntu@my.instance.ip.address
+```
+
+Once you're SSH'd into each instance, follow these steps:
+
+**Step 1: Update the system packages**
+
+First, update your system packages.
+
+```bash
+sudo apt-get update
+sudo apt-get upgrade -y
+```
+
+**Step 2: Install Docker**
+
+To install Docker on an Ubuntu machine, we generally suggest installing the Docker Engine straight from Docker's repositories, so you can get the most recent version. Here's a more detailed set of instructions:
+
+**Update your existing list of packages:**
+
+```bash
+sudo apt-get update
+```
+
+**Install a few prerequisite packages which let apt use packages over HTTPS:**
+
+```bash
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
+```
+
+**Then add the GPG key for the official Docker repository to your system:**
+
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+**Add the Docker repository to APT sources:**
+
+```bash
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+
+**Update the package database with the Docker packages from the newly added repo:**
+
+```bash
+sudo apt-get update
+```
+
+**Finally, install Docker:**
+
+```bash
+sudo apt-get install docker-ce -y
+```
+
+**Ensure Docker is running:**
+
+```bash
+sudo systemctl status docker
+```
+
+The output should show that the service is active and running.
+
+**To make Docker available for non-sudo (non-root) use:**
+
+```bash
+sudo usermod -aG docker ${USER}
+```
+
+You will need to log out and back in or reboot your machine for these changes to take effect.
+
+With these steps, Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it's running with the following command:
+
+```bash
+sudo docker run hello-world
+```
+
+This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits. It's a good way to make sure that Docker is working correctly on your system.
+
+**Step 3: Install kubelet, kubeadm, and kubernetes-cni**
+
+You'll need to install some additional packages and set up the Kubernetes repository.
+
+First, install the necessary packages:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+```
+
+Next, add the Kubernetes GPG key:
+
+```bash
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+```
+
+Then, add the Kubernetes repository:
+
+```bash
+cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+```
+
+Finally, update your package list and install kubelet, kubeadm, and kubernetes-cni:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubernetes-cni
+```
+
+Start and enable kubelet:
+
+```bash
+sudo systemctl start kubelet
+sudo systemctl enable kubelet
+```
+
+You'll need to repeat these steps for each instance.
+
+Remember, the Kubernetes project is rapidly evolving and the installation instructions might change. Be sure to check the [official Kubernetes documentation](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) for the most up-to-date instructions.
 
 **3. Setting up the Kubernetes Master**
 
