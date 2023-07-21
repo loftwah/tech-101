@@ -37,6 +37,7 @@ You will generally create at least one subnet in each Availability Zone for redu
 7. Choose "Create subnet".
 8. Repeat these steps to create the second and third subnets, making sure to use a different CIDR block for each.
 
+```mermaid
 graph TB
     vpc(VPC: 10.0.0.0/16)
     subnet1[Subnet1: 10.0.0.0/24]
@@ -45,6 +46,7 @@ graph TB
     vpc --> subnet1
     vpc --> subnet2
     vpc --> subnet3
+```
 
 **Step 3: Modify Auto-Assign IP Settings for Subnets (Optional)**
 
