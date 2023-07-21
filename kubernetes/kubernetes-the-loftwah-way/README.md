@@ -68,9 +68,9 @@ graph TB
     ec2a --> master
     ec2b --> worker1
     ec2c --> worker2
-    master --> podnet
-    worker1 --> podnet
-    worker2 --> podnet
+    master -.-> podnet
+    worker1 -.-> podnet
+    worker2 -.-> podnet
 ```
 
 **Step 3: Modify Auto-Assign IP Settings for Subnets (Optional)**
