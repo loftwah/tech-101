@@ -47,9 +47,12 @@ graph TB
     subnet3[Subnet3: 10.0.2.0/24]
     sg1(Security Group: SSH, API Server, etcd, Kubelet)
     sg2(Security Group: SSH)
-    ec2a[EC2 Instance: 10.0.0.10]
-    ec2b[EC2 Instance: 10.0.1.10]
-    ec2c[EC2 Instance: 10.0.2.10]
+    ec2a[EC2 Instance A: 10.0.0.10]
+    ec2b[EC2 Instance B: 10.0.1.10]
+    ec2c[EC2 Instance C: 10.0.2.10]
+    master[Master Node: API Server, etcd, Controller Manager, Scheduler]
+    worker1[Worker Node: Kubelet, Docker, Pods]
+    worker2[Worker Node: Kubelet, Docker, Pods]
     internet --> ig
     ig --> vpc
     vpc --> subnet1
@@ -61,6 +64,9 @@ graph TB
     sg1 --> ec2a
     sg2 --> ec2b
     sg2 --> ec2c
+    ec2a --> master
+    ec2b --> worker1
+    ec2c --> worker2
 ```
 
 **Step 3: Modify Auto-Assign IP Settings for Subnets (Optional)**
