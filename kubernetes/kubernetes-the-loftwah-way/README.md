@@ -39,13 +39,28 @@ You will generally create at least one subnet in each Availability Zone for redu
 
 ```mermaid
 graph TB
+    internet(Internet)
+    ig(Internet Gateway)
     vpc(VPC: 10.0.0.0/16)
     subnet1[Subnet1: 10.0.0.0/24]
     subnet2[Subnet2: 10.0.1.0/24]
     subnet3[Subnet3: 10.0.2.0/24]
+    sg1(Security Group: SSH, API Server, etcd, Kubelet)
+    sg2(Security Group: SSH)
+    ec2a[EC2 Instance: 10.0.0.10]
+    ec2b[EC2 Instance: 10.0.1.10]
+    ec2c[EC2 Instance: 10.0.2.10]
+    internet --> ig
+    ig --> vpc
     vpc --> subnet1
     vpc --> subnet2
     vpc --> subnet3
+    subnet1 --> ec2a
+    subnet2 --> ec2b
+    subnet3 --> ec2c
+    sg1 --> ec2a
+    sg2 --> ec2b
+    sg2 --> ec2c
 ```
 
 **Step 3: Modify Auto-Assign IP Settings for Subnets (Optional)**
