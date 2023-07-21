@@ -37,6 +37,15 @@ You will generally create at least one subnet in each Availability Zone for redu
 7. Choose "Create subnet".
 8. Repeat these steps to create the second and third subnets, making sure to use a different CIDR block for each.
 
+graph TB
+    vpc(VPC: 10.0.0.0/16)
+    subnet1[Subnet1: 10.0.0.0/24]
+    subnet2[Subnet2: 10.0.1.0/24]
+    subnet3[Subnet3: 10.0.2.0/24]
+    vpc --> subnet1
+    vpc --> subnet2
+    vpc --> subnet3
+
 **Step 3: Modify Auto-Assign IP Settings for Subnets (Optional)**
 
 By default, instances that you launch into a VPC are not assigned a public IPv4 address unless you specified otherwise during launch, or you've modified the subnet's public IPv4 addressing behavior. If you want your instances to automatically have a public IP, do the following:
