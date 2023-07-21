@@ -163,9 +163,9 @@ SSH into each instance and install the following:
 * kubeadm
 * kubernetes-cni
 
-For Ubuntu, you can use apt-get. Remember to start and enable Containerd and kubelet services.
+For Ubuntu, you can use apt-get. Remember to start and enable containerd and kubelet services.
 
-Let's go through the steps needed to install Containerd, kubelet, kubeadm, and kubernetes-cni on each of your instances.
+Let's go through the steps needed to install containerd, kubelet, kubeadm, and kubernetes-cni on each of your instances.
 
 Firstly, you'll need to SSH into each instance. Assuming you have a key pair `mykey.pem` and the public IP of your instance is `my.instance.ip.address`, you would do:
 
