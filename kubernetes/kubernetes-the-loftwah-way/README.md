@@ -158,7 +158,7 @@ With these steps, your instances in your VPC should be able to communicate with 
 
 SSH into each instance and install the following:
 
-* Containerd
+* containerd
 * kubelet
 * kubeadm
 * kubernetes-cni
