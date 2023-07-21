@@ -158,15 +158,14 @@ With these steps, your instances in your VPC should be able to communicate with 
 
 SSH into each instance and install the following:
 
-* Docker
+* Containerd
 * kubelet
 * kubeadm
-* kubelet
 * kubernetes-cni
 
-For Ubuntu, you can use apt-get. Remember to start and enable Docker and kubelet services.
+For Ubuntu, you can use apt-get. Remember to start and enable Containerd and kubelet services.
 
-let's go through the steps needed to install Docker, kubelet, kubeadm, and kubernetes-cni on each of your instances.
+Let's go through the steps needed to install Containerd, kubelet, kubeadm, and kubernetes-cni on each of your instances.
 
 Firstly, you'll need to SSH into each instance. Assuming you have a key pair `mykey.pem` and the public IP of your instance is `my.instance.ip.address`, you would do:
 
@@ -186,69 +185,78 @@ sudo apt-get update
 sudo apt-get upgrade -y
 ```
 
-**Step 2: Install Docker**
-
-To install Docker on an Ubuntu machine, we generally suggest installing the Docker Engine straight from Docker's repositories, so you can get the most recent version. Here's a more detailed set of instructions:
-
-**Update your existing list of packages:**
+**Step 2: Install Containerd**
 
 ```bash
+# Install necessary packages
 sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common containerd
+
+# Configure containerd and start the service
+sudo mkdir -p /etc/containerd
+containerd config default | sudo tee /etc/containerd/config.toml
+sudo systemctl restart containerd
 ```
 
-**Install a few prerequisite packages which let apt use packages over HTTPS:**
+**Step 3: Disable swap**
+
+Kubernetes requires that swap is disabled.
 
 ```bash
-sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
+sudo swapoff -a
 ```
 
-**Then add the GPG key for the official Docker repository to your system:**
+To ensure swap remains off after reboot, edit your `/etc/fstab` file:
 
 ```bash
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo nano /etc/fstab
 ```
 
-**Add the Docker repository to APT sources:**
+Find the line with `swap` and comment it out by adding a `#` at the start of the line. Save and close the file.
+
+**Step 4: Install kubelet, kubeadm, and kubernetes-cni**
+
+You can install these packages from the Kubernetes repository.
 
 ```bash
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-```
+# Add the Kubernetes signing key
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
-**Update the package database with the Docker packages from the newly added repo:**
+# Add the Kubernetes repository
+cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
 
-```bash
+# Install kubelet, kubeadm, and kubernetes-cni
 sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubernetes-cni
 ```
 
-**Finally, install Docker:**
+**Step 5: Configure kubelet to use Containerd**
+
+You will need to tell kubelet to use Containerd as its container runtime. Edit the kubelet configuration file:
 
 ```bash
-sudo apt-get install docker-ce -y
+sudo nano /etc/default/kubelet
 ```
 
-**Ensure Docker is running:**
+Add the following line:
 
 ```bash
-sudo systemctl status docker
+KUBELET_EXTRA_ARGS=--container-runtime=remote --container-runtime-endpoint=unix:///run/containerd/containerd.sock --runtime-request-timeout=15m
 ```
 
-The output should show that the service is active and running.
+Save and close the file.
 
-**To make Docker available for non-sudo (non-root) use:**
+**Step 6: Restart kubelet**
+
+Restart kubelet to pick up the changes in its configuration.
 
 ```bash
-sudo usermod -aG docker ${USER}
+sudo systemctl restart kubelet
 ```
 
-You will need to log out and back in or reboot your machine for these changes to take effect.
-
-With these steps, Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it's running with the following command:
-
-```bash
-sudo docker run hello-world
-```
-
-This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits. It's a good way to make sure that Docker is working correctly on your system.
+With these steps, Containerd and the Kubernetes components should now be installed and configured correctly. Now you can move on to setting up your Kubernetes cluster.
 
 **Step 3: Install kubelet, kubeadm, and kubernetes-cni**
 
