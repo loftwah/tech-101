@@ -7,7 +7,7 @@ for region in "${REGIONS[@]}"; do
     echo "Processing region: $region"
 
     echo "EC2 instances:"
-    aws ec2 describe-instances --query 'Reservations[].Instances[].{InstanceId:InstanceId, InstanceType:InstanceType, State:State.Name}' --output json --region $region --profile $PROFILE > "EC2_${region}.json"
+    aws ec2 describe-instances --query 'Reservations[].Instances[].{InstanceId:InstanceId, InstanceName:Tags[?Key==`Name`]|[0].Value, InstanceType:InstanceType, AvailabilityZone:Placement.AvailabilityZone, PublicIp:PublicIpAddress, PrivateIp:PrivateIpAddress, PublicDns:PublicDnsName, VPC:VpcId, Subnet:SubnetId, SecurityGroups:SecurityGroups[].GroupId, State:State.Name}' --output json --region $region --profile $PROFILE > "EC2_${region}.json"
 
     echo "S3 buckets:"
     aws s3api list-buckets --query 'Buckets[].Name' --output json --region $region --profile $PROFILE > "S3_${region}.json"
@@ -25,10 +25,10 @@ for region in "${REGIONS[@]}"; do
     aws sqs list-queues --query 'QueueUrls[]' --output json --region $region --profile $PROFILE > "SQS_${region}.json"
 
     echo "RDS instances:"
-    aws rds describe-db-instances --query 'DBInstances[].DBInstanceIdentifier' --output json --region $region --profile $PROFILE > "RDS_${region}.json"
+    aws rds describe-db-instances --query 'DBInstances[].{DBInstanceIdentifier:DBInstanceIdentifier, DBInstanceClass:DBInstanceClass, Storage:AllocatedStorage, Subnet:DBSubnetGroup.VpcId}' --output json --region $region --profile $PROFILE > "RDS_${region}.json"
 
     echo "ElastiCache clusters:"
-    aws elasticache describe-cache-clusters --query 'CacheClusters[].CacheClusterId' --output json --region $region --profile $PROFILE > "ElastiCache_${region}.json"
+    aws elasticache describe-cache-clusters --query 'CacheClusters[].{CacheClusterId:CacheClusterId, CacheNodeType:CacheNodeType}' --output json --region $region --profile $PROFILE > "ElastiCache_${region}.json"
 
     echo "SES identities:"
     aws ses list-identities --query 'Identities[]' --output json --region $region --profile $PROFILE > "SES_${region}.json"
