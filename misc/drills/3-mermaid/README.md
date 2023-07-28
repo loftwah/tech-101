@@ -81,9 +81,9 @@ graph LR
     EC2 -->|Deploy AMI| ASG[AutoScalingGroup]
     subgraph "Australia Production Environment"
     ASG -->|Load Balancer| ELB[(ElasticLoadBalancer)]
-    ELB --> PS[Paging Servers<br/>host: groups.operoo.com]
-    ELB --> SQ[Slow-Queries Servers<br/>host: groups.operoo.com]
-    ELB --> API[API<br/>host: api.operoo.com]
+    ELB --> PS[Paging Servers<br/>host: groups.example.com]
+    ELB --> SQ[Slow-Queries Servers<br/>host: groups.example.com]
+    ELB --> API[API<br/>host: api.example.com]
     PS -->|Data| RDS[(RDS Database)]
     PS -->|File Storage| S3[(S3: caremonkey-syd)]
     PS -->|Cache| Elasticache[(Elasticache Redis & Memcached)]
