@@ -101,12 +101,8 @@ graph LR
     SQ --> SNS
     EC2 --> RP[NGINX Reverse Proxy<br/>Supports olddomain.com]
     Cloudflare --> RP
-    RP --> S3
-    RP --> Elasticache
-    RP --> SQS
-    RP --> SES
-    RP --> Twilio
-    RP --> SNS
+    RP --> PS
+    RP --> SQ
     end
     style PS fill:#4f0d0d,stroke:#333,stroke-width:2px, color:#fff
     style SQ fill:#0c0a40,stroke:#333,stroke-width:2px, color:#fff
