@@ -4,7 +4,7 @@ Mermaid is a simple markdown-like script language for generating charts from tex
 
 **EC2 Module Documentation**
 
-The EC2 module is an integral part of the Operoo application's deployment system, designed to manage AWS EC2 instances and automate the process of deploying new versions of the app. The Operoo application is a Ruby on Rails web application hosted on AWS infrastructure, utilizing EC2 instances, Auto Scaling Groups (ASGs), Elastic Load Balancers (ELBs), RDS databases, S3 for file storage, and Redis for caching and background jobs.
+The EC2 module is an integral part of the application's deployment system, designed to manage AWS EC2 instances and automate the process of deploying new versions of the app. The application is a Ruby on Rails web application hosted on AWS infrastructure, utilizing EC2 instances, Auto Scaling Groups (ASGs), Elastic Load Balancers (ELBs), RDS databases, S3 for file storage, and Redis for caching and background jobs.
 
 **Key Classes**
 
@@ -12,7 +12,7 @@ The EC2 module is an integral part of the Operoo application's deployment system
 * **DeployTools**: Provides tools to assist with deployments and scaling. It can get lists of running instances, calculate instance counts needed, and generate EC2 host names for instances.
 * **ActiveClusterTools**: Manages the "active cluster" details stored as tags on the ELB. It can read and write the active cluster id, branch, etc.
 * **Deploy**: Orchestrates a full deployment process, handling everything from starting initial instances to creating an Auto Scaling Group with a new AMI, switching the ELB to the new ASG, and terminating old instances.
-* **DeployStandalone**: Similar to Deploy, but designed for deploying a standalone Operoo instance.
+* **DeployStandalone**: Similar to Deploy, but designed for deploying a standalone  instance.
 * **BackgroundDeployment**: Enqueues a deployment to be run in the background by Resque.
 
 **Key Utility Classes**
@@ -43,7 +43,7 @@ This approach ensures a fully built and tested app on the initial pageserver ins
 
 ## Deployment
 
-The following diagram shows the steps involved in deploying the Operoo application.
+The following diagram shows the steps involved in deploying the application.
 
 ```mermaid
 sequenceDiagram
@@ -72,7 +72,7 @@ sequenceDiagram
     DS->>De: Deploy standalone instance
 ```
 
-The following diagram shows the deployment of the Operoo application to the Australian production environment.
+The following diagram shows the deployment of the application to the Australian production environment.
 
 ```mermaid
 graph LR
