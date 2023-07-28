@@ -2,6 +2,10 @@
 
 This is a drill to practice the full CI/CD process for a Ruby on Rails application.
 
+## GitHub Repository
+
+This will start in another repository because it is such a large project. I will create my application in `loftwah/rails-full-ci-cd`.
+
 ## Deployment Process
 
 This is an integral part of the application's deployment system, designed to manage AWS EC2 instances and automate the process of deploying new versions of the app. The application is a Ruby on Rails web application hosted on AWS infrastructure, utilizing EC2 instances, Auto Scaling Groups (ASGs), Elastic Load Balancers (ELBs), RDS databases, S3 for file storage, and Redis for caching and background jobs.
@@ -41,7 +45,7 @@ This is an integral part of the application's deployment system, designed to man
 
 This approach ensures a fully built and tested app on the initial pageserver instance, a smooth launch of fully prepared servers using the new AMI by the ASG, and a zero downtime deployment with the ELB routing traffic seamlessly.
 
-## Deployment
+### Deployment Diagram
 
 The following diagram shows the steps involved in deploying the application.
 
@@ -72,6 +76,8 @@ sequenceDiagram
     DS->>De: Deploy standalone instance
 ```
 
+### Application Diagram
+
 The following diagram shows the deployment of the application to the Australian production environment.
 
 ```mermaid
@@ -81,16 +87,16 @@ graph LR
     EC2 -->|Deploy AMI| ASG[AutoScalingGroup]
     subgraph "Australia Production Environment"
     ASG -->|Load Balancer| ELB[(ElasticLoadBalancer)]
-    ELB --> PS[Paging Servers<br/>group: example.com]
+    ELB --> PS[Paging Servers<br/>group: paging.app.deanlofts.xyz]
     Cloudflare[(Cloudflare DNS<br/>Traffic Proxied Through Cloudflare Network)] --> PS
     PS -->|Data| RDS[(RDS Database)]
-    PS -->|File Storage| S3[(S3: example-syd)]
+    PS -->|File Storage| S3[(S3: app)]
     PS -->|Cache| Elasticache[(Elasticache Redis & Memcached)]
     PS -->|Queue| SQS[(SQS)]
     PS -->|Email Notifications| SES[(SES)]
     PS -->|SMS Notifications| Twilio[(Twilio)]
     PS -->|Push Notifications| SNS[(SNS Notification Service<br/>Push Notifications and Slack notifications)]
-    EC2 --> SQ[Slow-Queries Servers<br/>group: example.com]
+    EC2 --> SQ[Slow-Queries Servers<br/>group: slowqueries.app.deanlofts.xyz]
     Cloudflare --> SQ
     SQ --> RDS
     SQ --> S3
@@ -99,7 +105,7 @@ graph LR
     SQ --> SES
     SQ --> Twilio
     SQ --> SNS
-    EC2 --> RP[NGINX Reverse Proxy<br/>Supports olddomain.com]
+    EC2 --> RP[NGINX Reverse Proxy<br/>Supports legacy.app.deanlofts.xyz]
     Cloudflare --> RP
     RP --> PS
     RP --> SQ
