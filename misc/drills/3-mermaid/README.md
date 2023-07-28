@@ -85,7 +85,7 @@ graph LR
     ELB --> SQ[Slow-Queries Servers<br/>host: groups.example.com]
     ELB --> API[API<br/>host: api.example.com]
     PS -->|Data| RDS[(RDS Database)]
-    PS -->|File Storage| S3[(S3: caremonkey-syd)]
+    PS -->|File Storage| S3[(S3: example-syd)]
     PS -->|Cache| Elasticache[(Elasticache Redis & Memcached)]
     PS -->|Queue| SQS[(SQS)]
     PS -->|Email Notifications| SES[(SES)]
