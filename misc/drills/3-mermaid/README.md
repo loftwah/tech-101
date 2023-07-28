@@ -81,9 +81,8 @@ graph LR
     EC2 -->|Deploy AMI| ASG[AutoScalingGroup]
     subgraph "Australia Production Environment"
     ASG -->|Load Balancer| ELB[(ElasticLoadBalancer)]
-    ELB --> PS[Paging Servers<br/>host: groups.example.com]
-    ELB --> SQ[Slow-Queries Servers<br/>host: groups.example.com]
-    ELB --> API[API<br/>host: api.example.com]
+    ELB --> PS[Paging Servers<br/>group: example.com]
+    Cloudflare[(Cloudflare DNS<br/>Traffic Proxied Through Cloudflare Network)] --> PS
     PS -->|Data| RDS[(RDS Database)]
     PS -->|File Storage| S3[(S3: example-syd)]
     PS -->|Cache| Elasticache[(Elasticache Redis & Memcached)]
@@ -91,6 +90,8 @@ graph LR
     PS -->|Email Notifications| SES[(SES)]
     PS -->|SMS Notifications| Twilio[(Twilio)]
     PS -->|Push Notifications| SNS[(SNS Notification Service<br/>Push Notifications and Slack notifications)]
+    EC2 --> SQ[Slow-Queries Servers<br/>group: example.com]
+    Cloudflare --> SQ
     SQ --> RDS
     SQ --> S3
     SQ --> Elasticache
@@ -98,14 +99,16 @@ graph LR
     SQ --> SES
     SQ --> Twilio
     SQ --> SNS
-    API --> RDS
-    API --> S3
-    API --> Elasticache
-    API --> SQS
-    API --> SES
-    API --> Twilio
-    API --> SNS
+    EC2 --> RP[NGINX Reverse Proxy<br/>Supports olddomain.com]
+    Cloudflare --> RP
+    RP --> S3
+    RP --> Elasticache
+    RP --> SQS
+    RP --> SES
+    RP --> Twilio
+    RP --> SNS
     end
-    style PS fill:#4f0d0d,stroke:#333,stroke-width:2px, color:#000
-    style SQ fill:#0c0a40,stroke:#333,stroke-width:2px, color:#000
+    style PS fill:#4f0d0d,stroke:#333,stroke-width:2px, color:#fff
+    style SQ fill:#0c0a40,stroke:#333,stroke-width:2px, color:#fff
+    style RP fill:#4d4d4d,stroke:#333,stroke-width:2px, color:#fff
 ```
