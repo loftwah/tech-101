@@ -1,5 +1,7 @@
 from manim import *
 
+config.preview = False
+
 MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     'C':'-.-.', 'D':'-..', 'E':'.',
                     'F':'..-.', 'G':'--.', 'H':'....',
@@ -22,6 +24,7 @@ class MorseCode(Scene):
         # Animate each letter
         for letter, morse in code:
             self.play_flash(letter, morse)
+            self.wait(1)  # Add a delay after each Morse code sequence
 
     def play_flash(self, letter, morse):
         # Show letter
@@ -31,24 +34,22 @@ class MorseCode(Scene):
         self.play(FadeOut(text))
 
         # Show Morse code
-        for symbol in morse.split(" "):
+        for symbol in morse:
             if symbol == ".":
                 self.play_flash_dot()
             elif symbol == "-":
                 self.play_flash_dash()
-
-        self.wait(2)
 
     def play_flash_dot(self):
         circle = Circle(fill_opacity=1).scale(1)
         self.play(FadeIn(circle))
         self.wait(0.3)
         self.play(FadeOut(circle))
-        self.wait(0.3)
+        self.wait(0.7)  # Add a delay after each symbol
 
     def play_flash_dash(self):
         circle = Circle(fill_opacity=1).scale(1)
         self.play(FadeIn(circle))
         self.wait(0.6)
         self.play(FadeOut(circle))
-        self.wait(0.3)
+        self.wait(0.7)  # Add a delay after each symbol

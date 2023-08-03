@@ -7,9 +7,6 @@ WORKDIR /app
 # Copy the manim.cfg file into the container at /app
 COPY manim.cfg /app/manim.cfg
 
-# Copy the current directory contents into the container at /app
-COPY . /app
-
 # Install any needed packages specified in requirements.txt
 RUN apt-get update && \
     apt-get install -y \

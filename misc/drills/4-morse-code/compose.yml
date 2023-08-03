@@ -7,3 +7,5 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./media/videos:/app/media/videos
+      - .:/app  # This line maps the current directory to /app in the container
+    entrypoint: ["manim", "-p", "-ql", "morse.py", "MorseCode"]
