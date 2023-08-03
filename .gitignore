@@ -47,5 +47,7 @@ override.tf.json
 misc/drills/4-morse-code/media/*
 aws/scripts/*.json
 aws/scripts/report.md
+aws/scripts/aws_resources.txt
 langchain/data
 langchain/constants.py
+langchain/__pycache__
