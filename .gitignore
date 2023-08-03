@@ -43,3 +43,5 @@ override.tf.json
 # Things we'll generate in the exercises and want to ignore
 ## files that start with ignoreMe
 **/*ignoreMe.*
+
+misc/drills/4-morse-code/media/*
