@@ -45,3 +45,7 @@ override.tf.json
 **/*ignoreMe.*
 
 misc/drills/4-morse-code/media/*
+aws/scripts/*.json
+aws/scripts/report.md
+langchain/data
+langchain/constants.py
