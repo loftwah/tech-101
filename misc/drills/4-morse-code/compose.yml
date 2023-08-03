@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  manim-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./media/videos:/app/media/videos
