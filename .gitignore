@@ -50,4 +50,4 @@ aws/scripts/report.md
 aws/scripts/aws_resources.txt
 langchain/data
 langchain/constants.py
-langchain/__pycache__
+*__pycache__
