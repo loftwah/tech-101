@@ -9,17 +9,39 @@ fi
 # Declare an array for AWS regions to check
 declare -a regions=("ap-southeast-2" "us-west-1" "eu-west-1")
 
+# Output Header
+echo -e "Region\tInstanceID\tInstanceType\tName\tPrivateIP\tPublicIP\tEBS(VolumeID:Size:Type:IOPS)\tSnapshots"
+
 # Loop through each region to find stopped EC2 instances
 for region in "${regions[@]}"; do
-  echo "---------------------------------------------------------------"
-  echo "Listing stopped EC2 instances in region: $region"
 
-  # Use AWS CLI to list all EC2 instances that are in the 'stopped' state
-  aws ec2 describe-instances \
+  # Find all EC2 instances that are in the 'stopped' state
+  instance_data=$(aws ec2 describe-instances \
     --region $region \
     --filters "Name=instance-state-name,Values=stopped" \
-    --query 'Reservations[*].Instances[*].[InstanceId,InstanceType,Tags[?Key==`Name`]|[0].Value,PrivateIpAddress,PublicIpAddress]' \
-    --output text | \
-    awk 'BEGIN { printf "%-25s %-20s %-40s %-20s %-20s\n", "InstanceID", "InstanceType", "Name", "PrivateIP", "PublicIP" } 
-         { if ($4 !~ /^([0-9]{1,3}\.){3}[0-9]{1,3}$/) $4 = "-"; if ($5 !~ /^([0-9]{1,3}\.){3}[0-9]{1,3}$/) $5 = "-"; printf "%-25s %-20s %-40s %-20s %-20s\n", $1, $2, $3, $4, $5 }'
+    --query 'Reservations[*].Instances[*].[InstanceId]' \
+    --output text)
+
+  # Loop through each InstanceId and fetch details
+  for instance in $instance_data; do
+    instance_details=$(aws ec2 describe-instances \
+      --region $region \
+      --instance-ids $instance \
+      --query 'Reservations[*].Instances[*].[InstanceId,InstanceType,Tags[?Key==`Name`]|[0].Value,PrivateIpAddress,PublicIpAddress]' \
+      --output text | awk -v OFS="\t" '{$1=$1}1')
+    
+    volume_data=$(aws ec2 describe-volumes \
+      --region $region \
+      --filters "Name=attachment.instance-id,Values=$instance" \
+      --query 'Volumes[*].[VolumeId,Size,VolumeType,Iops]' \
+      --output text | awk -v OFS=":" '{$1=$1}1')
+
+    snapshot_data=$(aws ec2 describe-snapshots \
+      --region $region \
+      --filters "Name=volume-id,Values=$(echo $volume_data | awk -F ":" '{print $1}')" \
+      --query 'Snapshots[*].[SnapshotId]' \
+      --output text)
+    
+    echo -e "$region\t$instance_details\t$volume_data\t$snapshot_data"
+  done
 done
