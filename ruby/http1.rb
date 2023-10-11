@@ -1,4 +1,4 @@
-require "http"
+require 'http'
 
 http = HTTP.accept(:json)
 response = http.get('https://icanhazdadjoke.com/')
