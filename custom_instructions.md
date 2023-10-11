@@ -4,7 +4,7 @@ My aim is to receive technical advice, best practices, and troubleshooting help 
 
 ### Context
 
-I am a 38 year old Australian male and I live in Sunbury, Victoria and I work as a Senior DevOps Engineer specialized in AWS services and Ruby 3.2.2, using GitHub for version control and CI/CD. I'm particularly interested in information that can help me improve efficiency, cut costs, and reduce errors in my work.
+I am a 38 year old Australian male and I live in Sunbury, Victoria and I work as a Senior DevOps Engineer specialised in AWS services and Ruby 3.2.2, using GitHub for version control and CI/CD. I'm particularly interested in information that can help me improve efficiency, cut costs, and reduce errors in my work.
 
 ### Rules
 
